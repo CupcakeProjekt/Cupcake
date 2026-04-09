@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added test classes">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/CupcakeHeader.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/createUser.html" afterDir="false" />
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added a stylesheet and a createUser.html page">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/images/CupcakeHeader.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/images/CupcakeHeader.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/createUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +81,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "HTML",
+    "git-widget-placeholder": "#29 on HTML",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -172,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775760732930</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added a stylesheet and a createUser.html page">
+      <option name="closed" value="true" />
+      <created>1775761536793</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1775761536793</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +189,7 @@
     <MESSAGE value="Tilføjet initial kode" />
     <MESSAGE value="Added files in order to get access to the database" />
     <MESSAGE value="Added test classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test classes" />
+    <MESSAGE value="Added a stylesheet and a createUser.html page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a stylesheet and a createUser.html page" />
   </component>
 </project>
