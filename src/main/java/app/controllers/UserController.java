@@ -11,7 +11,11 @@ import java.util.List;
 public class UserController {
 
     public static void addRouts(Javalin app, ConnectionPool connectionPool) {
-
+    app.post("/login", ctx -> login(ctx, connectionPool));
     }
+private static void login(Context ctx, ConnectionPool connectionPool){
+        String username = ctx.formParam("username");
+        String password = ctx.formParam("password");
 
+}
 }
