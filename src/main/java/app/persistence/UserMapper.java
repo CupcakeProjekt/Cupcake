@@ -16,11 +16,10 @@ public class UserMapper {
 
         try (
                 Connection connection = connectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        )
-        {
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
+        ) {
             preparedStatement.setString(1, username);
-            preparedStatement.setString(1, password);
+            preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 int ID = resultSet.getInt("bruger_id");
@@ -34,5 +33,20 @@ public class UserMapper {
         } catch (SQLException e) {
             throw new DatabaseException("Fejl i DB", e.getMessage());
         }
+    }
+
+    public static User createUser(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "INSERT INTO bruger (navn, password) VALUES (?, ?)";
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DatabaseException("Fejl ved opretning", e.getMessage());
+        }
+        return UserMapper.login(username, password, connectionPool);
     }
 }
