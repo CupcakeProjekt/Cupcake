@@ -1,19 +1,38 @@
 package app.persistence;
 
+import app.entities.Role;
 import app.entities.User;
+import app.exceptions.DatabaseException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserMapper {
 
-    public static User login(String username, String password, ConnectionPool connectionPool){
-    String sql = "SELECT * FROM bruger WHERE navn=? AND password=?";
+    public static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "SELECT * FROM bruger WHERE navn=? AND password=?";
 
-    try(
-        Connection connection = connectionPool.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-    ){
-
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        )
+        {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(1, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int ID = resultSet.getInt("bruger_id");
+                String roleString = resultSet.getString("rolle");
+                Role role = Role.valueOf(roleString.toUpperCase());
+                int balance = resultSet.getInt("balance");
+                return new User(ID, username, password, role, balance);
+            } else {
+                throw new DatabaseException("Fejl i login, prøv igen.");
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Fejl i DB", e.getMessage());
+        }
     }
-}}
+}
