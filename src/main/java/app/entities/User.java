@@ -1,17 +1,18 @@
 package app.entities;
 
-public class Bruger {
+public class User {
     int userID;
     String username;
     String password;
-    Rolle rolle;
+    Role role;
     int balance;
 
-    public Bruger(int userID, String username, String password, Rolle rolle) {
+    public User(int userID, String username, String password, Role role, int balance) {
         this.userID = userID;
         this.username = username;
         this.password = password;
-        this.rolle = rolle;
+        this.role = role;
+        this.balance = balance;
     }
 
     public String getUsername() {
@@ -38,12 +39,12 @@ public class Bruger {
         this.password = password;
     }
 
-    public Rolle getRolle() {
-        return rolle;
+    public Role getRolle() {
+        return role;
     }
 
-    public void setRolle(Rolle rolle) {
-        this.rolle = rolle;
+    public void setRolle(Role role) {
+        this.role = role;
     }
 
     public int getBalance() {

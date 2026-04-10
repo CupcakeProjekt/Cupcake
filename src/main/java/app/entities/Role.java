@@ -1,6 +1,6 @@
 package app.entities;
 
-public enum Rolle {
+public enum Role {
     ADMIN,
     USER
 }
