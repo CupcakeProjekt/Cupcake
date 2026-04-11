@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SignUp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<header>
+    <a href="index.html" th:href="@{/}">
+        <img src="../public/images/CupcakeHeader.png" th:src="@{/images/CupcakeHeader.png}" width="100%"/>
+    </a>
+</header>
+<h2></h2>
+<form method="post" class="loginForm" th:action="@{create-user}">
+    <label class="loginLabel" for="usernameInput">Brugernavn</label>
+    <input name="username" id="usernameInput" type="text" placeholder="Brugernavn*"/>
+
+    <label class="loginLabel" for="passwordInput">Password</label>
+    <input name="password" id="passwordInput" type="password" placeholder="Adgangskode*"/>
+
+    <label class="loginLabel" for="repeatPassword">Password</label>
+    <input name="repeatPassword" id="repeatPassword" type="password" placeholder="Bekræft adgangskode">
+    <button id="submitButton" type="submit">Opret bruger</button>
+    <br> Har du allerede en bruger? <a href="Index.html" th:href="@{/}">Log ind</a>
+</form>
+</body>
+</html>
