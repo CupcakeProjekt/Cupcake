@@ -2,10 +2,7 @@ package app.controllers;
 
 import app.entities.*;
 import app.exceptions.DatabaseException;
-import app.persistence.BottomMapper;
-import app.persistence.ConnectionPool;
-import app.persistence.TopMapper;
-import app.persistence.UserMapper;
+import app.persistence.*;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
@@ -63,12 +60,7 @@ public class UserController {
         int bottomID = Integer.parseInt(ctx.formParam("bottom-id"));
         int amount = Integer.parseInt(ctx.formParam("amount"));
 
-        Topping top = TopMapper.getToppingByID(connectionPool, topID);
-        Bottom bottom = BottomMapper.getBottomByID(connectionPool, bottomID);
-
-        Cupcake cupcake = new Cupcake(bottom, top);
-
-        Orderline orderline = new Orderline(cupcake, amount);
+        OrderMapper.addOrderlineToOrder(connectionPool, bottomID, topID);
 
 
 
