@@ -1,11 +1,27 @@
 package app.entities;
 
-public class Base {
+public class Bottom {
     int bottomID;
     String bottomName;
     String bottomDesc;
+    int price;
 
-    public Base(int bottomID, String bottomName, String bottomDesc) {
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public Bottom(int bottomID, String bottomName, String bottomDesc, int price) {
+        this.bottomID = bottomID;
+        this.bottomName = bottomName;
+        this.bottomDesc = bottomDesc;
+        this.price = price;
+    }
+
+    public Bottom(int bottomID, String bottomName, String bottomDesc) {
         this.bottomID = bottomID;
         this.bottomName = bottomName;
         this.bottomDesc = bottomDesc;
