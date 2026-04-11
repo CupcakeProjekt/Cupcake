@@ -1,8 +1,8 @@
 package app.entities;
 
-public class Ordrelinje {
+public class Orderline {
     Cupcake cupcake;
-    int antal;
+    int amount;
 
     public Cupcake getCupcake() {
         return cupcake;
@@ -12,16 +12,16 @@ public class Ordrelinje {
         this.cupcake = cupcake;
     }
 
-    public int getAntal() {
-        return antal;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setAntal(int antal) {
-        this.antal = antal;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public Ordrelinje(Cupcake cupcake, int antal) {
+    public Orderline(Cupcake cupcake, int amount) {
         this.cupcake = cupcake;
-        this.antal = antal;
+        this.amount = amount;
     }
 }
