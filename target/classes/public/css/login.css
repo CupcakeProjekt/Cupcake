@@ -1,0 +1,193 @@
+/* Stylesheet for the application */
+.welcomeTxt{
+    margin-left: 3%;
+}
+
+p {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+button, input[type=checkbox], .burgerContainer {
+    cursor: pointer;
+}
+
+h1 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+}
+
+.hidden {
+    display: none;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+
+/* Login styles*/
+
+.loginForm input[type=password], .loginForm input[type=text] {
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.loginForm button[type=submit] {
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #ff8e2e;
+    color: white;
+}
+
+.loginForm button:hover {
+    background-color: #a35420;
+}
+
+/* Task styles */
+
+.taskTable {
+    border-collapse: collapse;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.taskTable td, .taskTable th {
+    border: grey solid 1px;
+    padding: 10px;
+
+}
+
+.taskTable tr:not(.hidden):nth-child(even) {
+    background-color: #d3d3d3;
+}
+
+/*Table styles*/
+#tablesDiv {
+    display: flex;
+    gap: 20rem;
+    justify-content: center;
+
+}
+
+.tableSection {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.tableSection h2 {
+    text-align: center;
+}
+
+.taskLabel.input[type=checkbox]:checked{}
+
+
+
+/*Sidebar styles*/
+.burgerContainer {
+    margin-top: 10px;
+    margin-left: 10px;
+    justify-content: start;
+    width: fit-content;
+    height: fit-content;
+}
+
+
+.sidebar {
+    position: absolute;
+    top: 200px;
+    left: 25px;
+    display: flex;
+    border: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    z-index: 1000;
+    background-color: white;
+    transition-duration: 0.6s;
+
+}
+
+
+.sidebar a {
+    display: block;
+    padding: 14px;
+    margin: 10px;
+    background: lightgrey;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    transition-duration: 0.6s;
+    background: #333333;
+    color: white;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+.taskAction,
+.taskAction:hover,
+.taskAction:visited,
+.taskAction:active {
+    color: black;
+    text-decoration: none;
+}
+
+.taskSidebar.openA {
+    display: block;
+}
+
+.taskSidebar {
+    display: none;
+}
+
+.sidebar.open {
+    border: black 1px solid;
+}
+
+/* Modal styles */
+
+.modalBody{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+#description{
+    padding: 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 5px;
+}
+.modalEditContent label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
