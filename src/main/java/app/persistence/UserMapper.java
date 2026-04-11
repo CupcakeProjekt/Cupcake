@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class UserMapper {
 
     public static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "SELECT * FROM bruger WHERE navn=? AND password=?";
+        String sql = "SELECT * FROM users WHERE name=? AND password=?";
 
         try (
                 Connection connection = connectionPool.getConnection();
@@ -36,7 +36,7 @@ public class UserMapper {
     }
 
     public static User createUser(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "INSERT INTO bruger (navn, password) VALUES (?, ?)";
+        String sql = "INSERT INTO user (name, password) VALUES (?, ?)";
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql);
         ) {

@@ -3,7 +3,7 @@ DROP SCHEMA public CASCADE;
 CREATE SCHEMA public;
 
 -- Opret tabeller i den rigtige rækkefølge (først dem der ikke afhænger af andre)
-CREATE TABLE "user" (
+CREATE TABLE users (
                         user_id SERIAL PRIMARY KEY,
                         name TEXT NOT NULL,
                         password TEXT NOT NULL,
@@ -39,14 +39,14 @@ CREATE TABLE product (
                          top_id INTEGER REFERENCES top(top_id)
 );
 
-CREATE TABLE "order" (
+CREATE TABLE orders (
                          order_number SERIAL PRIMARY KEY,
-                         user_id INTEGER NOT NULL REFERENCES "user"(user_id)
+                         user_id INTEGER NOT NULL REFERENCES users(user_id)
 );
 
 CREATE TABLE order_line (
                             line_id SERIAL PRIMARY KEY,
-                            order_number INTEGER REFERENCES "order"(order_number),
+                            order_number INTEGER REFERENCES orders(order_number),
                             product_id INTEGER REFERENCES product(product_id),
                             quantity INTEGER NOT NULL
 );
