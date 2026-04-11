@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added partial login function">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-    </list>
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added a stylesheet and a createUser.html page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,17 +14,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Class" />
         <option value="JUnit5 Test Class" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
-        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="UserMapper" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,22 +41,22 @@
       </list>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/CupcakeProjekt/Cupcake.git",
-    "accountId": "fc3bea5e-19e1-4772-8c7e-57661784fac9"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CupcakeProjekt/Cupcake.git&quot;,
+    &quot;accountId&quot;: &quot;c6902be5-378a-4251-bdfc-e34e6680b828&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "CupcakeProjekt",
-    "repository": "Cupcake"
+    &quot;owner&quot;: &quot;CupcakeProjekt&quot;,
+    &quot;repository&quot;: &quot;Cupcake&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -79,14 +72,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "UserMapper",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -127,12 +119,16 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
+    <configuration default="true" type="JetRunConfigurationType">
       <module name="untitled" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="untitled" />
+      <option name="filePath" />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SharedIndexes">
@@ -152,7 +148,6 @@
       <updated>1775665644338</updated>
       <workItem from="1775665646094" duration="1710000" />
       <workItem from="1775667468333" duration="3255000" />
-      <workItem from="1775806122923" duration="1339000" />
     </task>
     <task id="LOCAL-00001" summary="Tilføjet initial kode">
       <option name="closed" value="true" />
@@ -194,23 +189,7 @@
       <option name="project" value="LOCAL" />
       <updated>1775761536793</updated>
     </task>
-    <task id="LOCAL-00006" summary="Added partial login function">
-      <option name="closed" value="true" />
-      <created>1775767947468</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1775767947468</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Added partial login function">
-      <option name="closed" value="true" />
-      <created>1775807185683</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1775807185683</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,8 +200,7 @@
     <MESSAGE value="Added files in order to get access to the database" />
     <MESSAGE value="Added test classes" />
     <MESSAGE value="Added a stylesheet and a createUser.html page" />
-    <MESSAGE value="Added partial login function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added partial login function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a stylesheet and a createUser.html page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -230,7 +208,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java</url>
           <line>20</line>
-          <properties class="app.controllers.UserController" method="createUser">
+          <properties class="app.controllers.UserController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -239,7 +217,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java</url>
           <line>37</line>
-          <properties class="app.persistence.UserMapper" method="createUser">
+          <properties class="app.persistence.UserMapper">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
