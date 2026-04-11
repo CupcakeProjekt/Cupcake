@@ -22,8 +22,8 @@ public class UserMapper {
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                int ID = resultSet.getInt("bruger_id");
-                String roleString = resultSet.getString("rolle");
+                int ID = resultSet.getInt("user_id");
+                String roleString = resultSet.getString("role");
                 Role role = Role.valueOf(roleString.toUpperCase());
                 int balance = resultSet.getInt("balance");
                 return new User(ID, username, password, role, balance);
@@ -45,7 +45,7 @@ public class UserMapper {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            throw new DatabaseException("Fejl ved opretning", e.getMessage());
+            throw new DatabaseException("Fejl ved oprettelse", e.getMessage());
         }
         return UserMapper.login(username, password, connectionPool);
     }
