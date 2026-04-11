@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Slettet products tabel, nu henviser orderline direkte til bottom og top via id">
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Base.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Cupcake.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Cupcake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Ordre.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Ordrelinje.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Topping.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Topping.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/images/CupcakeHeader.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/javascript/JS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +78,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "JavaScript Debug.login.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -262,7 +252,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775924270404</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Ændret navn på login.html til create-user.html">
+      <option name="closed" value="true" />
+      <created>1775926219253</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1775926219253</updated>
+    </task>
+    <task id="LOCAL-00013" summary=".">
+      <option name="closed" value="true" />
+      <created>1775926241591</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1775926241591</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +284,27 @@
     <MESSAGE value="Added Top and Bottom mapper" />
     <MESSAGE value="Lavet yderligere metoder i BottomMapper og TopMapper" />
     <MESSAGE value="Slettet products tabel, nu henviser orderline direkte til bottom og top via id" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slettet products tabel, nu henviser orderline direkte til bottom og top via id" />
+    <MESSAGE value="Ændret navn på login.html til create-user.html" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java</url>
+          <line>16</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

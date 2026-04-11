@@ -12,6 +12,8 @@ public class UserController {
 
     public static void addRouts(Javalin app, ConnectionPool connectionPool) {
         app.post("/login", ctx -> login(ctx, connectionPool));
+        app.post("/create-user-page", ctx ->
+                ctx.render("create-user.html"));
         app.post("/create-user", ctx -> createUser(ctx, connectionPool));
         app.get("/index", ctx -> addAllParts(ctx, connectionPool));
 
@@ -61,8 +63,6 @@ public class UserController {
         int amount = Integer.parseInt(ctx.formParam("amount"));
 
         OrderMapper.addOrderlineToOrder(connectionPool, bottomID, topID, amount);
-
-
 
 
     }
