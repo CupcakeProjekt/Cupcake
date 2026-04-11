@@ -6,6 +6,11 @@ public class Cupcake {
     Bottom bottom;
     Topping topping;
 
+    public Cupcake(Bottom bottom, Topping topping) {
+        this.bottom = bottom;
+        this.topping = topping;
+    }
+
     public int getProductID() {
         return productID;
     }

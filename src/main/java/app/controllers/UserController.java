@@ -1,8 +1,6 @@
 package app.controllers;
 
-import app.entities.Bottom;
-import app.entities.Topping;
-import app.entities.User;
+import app.entities.*;
 import app.exceptions.DatabaseException;
 import app.persistence.BottomMapper;
 import app.persistence.ConnectionPool;
@@ -11,7 +9,6 @@ import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
@@ -19,12 +16,7 @@ public class UserController {
     public static void addRouts(Javalin app, ConnectionPool connectionPool) {
         app.post("/login", ctx -> login(ctx, connectionPool));
         app.post("/create-user", ctx -> createUser(ctx, connectionPool));
-        app.get("/index", ctx -> {
-            List<Topping> tops = TopMapper.getAllTops(connectionPool);
-            List<Bottom> bottoms = BottomMapper.getAllBottoms(connectionPool);
-            ctx.attribute("tops", tops);
-            ctx.attribute("bottoms", bottoms);
-        });
+        app.get("/index", ctx -> addAllParts(ctx, connectionPool));
 
     }
 
@@ -57,5 +49,29 @@ public class UserController {
     private static void logout(Context ctx) {
         ctx.req().getSession().invalidate();
         ctx.redirect("/");
+    }
+
+    private static void addAllParts(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        List<Topping> tops = TopMapper.getAllTops(connectionPool);
+        List<Bottom> bottoms = BottomMapper.getAllBottoms(connectionPool);
+        ctx.attribute("tops", tops);
+        ctx.attribute("bottoms", bottoms);
+    }
+
+    private static void addOrderToDatabase(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        int topID = Integer.parseInt(ctx.formParam("top-id"));
+        int bottomID = Integer.parseInt(ctx.formParam("bottom-id"));
+        int amount = Integer.parseInt(ctx.formParam("amount"));
+
+        Topping top = TopMapper.getToppingByID(connectionPool, topID);
+        Bottom bottom = BottomMapper.getBottomByID(connectionPool, bottomID);
+
+        Cupcake cupcake = new Cupcake(bottom, top);
+
+        Orderline orderline = new Orderline(cupcake, amount);
+
+
+
+
     }
 }
