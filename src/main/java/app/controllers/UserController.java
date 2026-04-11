@@ -60,10 +60,6 @@ public class UserController {
         int bottomID = Integer.parseInt(ctx.formParam("bottom-id"));
         int amount = Integer.parseInt(ctx.formParam("amount"));
 
-        OrderMapper.addOrderlineToOrder(connectionPool, bottomID, topID);
-
-
-
-
+        OrderMapper.addOrderlineToOrder(connectionPool, bottomID, topID, amount);
     }
 }
