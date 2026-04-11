@@ -15,25 +15,25 @@
     </a>
 </header>
 
-<form method="post" class="login-form" th:action="@{create-user}">
+<form method="post" class="login-form" th:action="@{/create-user}">
     <h2 class="form-title">✨ Opret bruger ✨</h2>
 
     <label class="login-label" for="username-input">🧁 Brugernavn</label>
-    <input class="login-input" name="username" id="username-input" type="text" placeholder="Vælg et sødt brugernavn*"
+    <input class="login-input" name="username" id="username-input" type="text" placeholder="Indtast brugernavn"
            required/>
 
     <label class="login-label" for="password-input">🔒 Password</label>
-    <input class="login-input" name="password" id="password-input" type="password" placeholder="Mindst 6 tegn*"
+    <input class="login-input" name="password" id="password-input" type="password" placeholder="Mindst 6 tegn"
            required/>
 
     <label class="login-label" for="repeat-password">✅ Bekræft password</label>
     <input class="login-input" name="repeat-password" id="repeat-password" type="password"
            placeholder="Skriv samme adgangskode igen" required/>
 
-    <button class="submit-button" id="submit-button" type="submit">🎉 Opret bruger 🎉</button>
+    <button class="submit-button" id="submit-button" type="submit">Opret bruger</button>
 
     <div class="login-link">
-        🍪 Har du allerede en bruger? <a href="index.html" th:href="@{/}">Log ind her</a>
+        Har du allerede en bruger? <a href="index.html" th:href="@{/}">Log ind</a>
     </div>
 </form>
 </body>
