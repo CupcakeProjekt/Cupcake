@@ -1,5 +1,6 @@
--- Slet eksisterende tabeller (rigtig rækkefølge – baglæns ift. afhængigheder)
-DROP TABLE IF EXISTS order_line, "order", product, category, top, bottom, "user" CASCADE;
+-- Dropper hele schema
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
 
 -- Opret tabeller i den rigtige rækkefølge (først dem der ikke afhænger af andre)
 CREATE TABLE "user" (
