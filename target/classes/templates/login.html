@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SignUp - Cupcake glæde</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
+</head>
+
+<body class="signup-body">
+<header class="signup-header">
+    <a href="home-page.html" th:href="@{/}">
+        <img class="signup-logo" src="../static/images/cupcakeHeader.png" th:src="@{/images/cupcakeHeader.png}"
+             alt="Cupcake logo"/>
+    </a>
+</header>
+
+<form method="post" class="login-form" th:action="@{/login}">
+    <h2 class="form-title">✨ Log ind ✨</h2>
+
+    <label class="login-label" for="username-input">🧁 Brugernavn</label>
+    <input class="login-input" name="username" id="username-input" type="text" placeholder="Indtast brugernavn"
+           required/>
+
+    <label class="login-label" for="password-input">🔒 Password</label>
+    <input class="login-input" name="password" id="password-input" type="password" placeholder="Mindst 6 tegn"
+           required/>
+
+    <button class="submit-button" id="submit-button" type="submit">Log ind</button>
+
+    <div class="login-link">
+        Ny til Olsker Cupcakes? <a th:href="@{/create-user-page}">Opret bruger</a>
+    </div>
+</form>
+</body>
+</html>
