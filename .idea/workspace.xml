@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added Top and Bottom mapper">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Slettet products tabel, nu henviser orderline direkte til bottom og top via id">
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Cupcake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Cupcake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Ordre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Ordrelinje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/BottomMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/BottomMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/TopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/TopMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +81,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "#37 on US-1",
+    "git-widget-placeholder": "#39 on US-1",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -231,7 +224,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775917356895</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Lavet yderligere metoder i BottomMapper og TopMapper">
+      <option name="closed" value="true" />
+      <created>1775924122393</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1775924122393</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Slettet products tabel, nu henviser orderline direkte til bottom og top via id">
+      <option name="closed" value="true" />
+      <created>1775924270404</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1775924270404</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +254,8 @@
     <MESSAGE value="Changed .gitignore" />
     <MESSAGE value="Changed names of some db tables" />
     <MESSAGE value="Added Top and Bottom mapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Top and Bottom mapper" />
+    <MESSAGE value="Lavet yderligere metoder i BottomMapper og TopMapper" />
+    <MESSAGE value="Slettet products tabel, nu henviser orderline direkte til bottom og top via id" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slettet products tabel, nu henviser orderline direkte til bottom og top via id" />
   </component>
 </project>
