@@ -1,89 +1,71 @@
-BEGIN;
+-- Slet eksisterende tabeller (rigtig rækkefølge – baglæns ift. afhængigheder)
+DROP TABLE IF EXISTS order_line, "order", product, category, top, bottom, "user" CASCADE;
 
-CREATE TABLE IF NOT EXISTS public."order"
-(
-    order_number serial NOT NULL,
-    user_id integer NOT NULL,
-    PRIMARY KEY (order_number)
-    );
+-- Opret tabeller i den rigtige rækkefølge (først dem der ikke afhænger af andre)
+CREATE TABLE "user" (
+                        user_id SERIAL PRIMARY KEY,
+                        name TEXT NOT NULL,
+                        password TEXT NOT NULL,
+                        address TEXT[],
+                        role TEXT DEFAULT 'USER',
+                        balance BIGINT
+);
 
-CREATE TABLE IF NOT EXISTS public.user
-(
-    user_id serial NOT NULL,
-    name character varying NOT NULL,
-    password character varying NOT NULL,
-    address character varying[],
-    role character varying NOT NULL DEFAULT 'USER',
-    balance bigint,
-    PRIMARY KEY (user_id)
-    );
+CREATE TABLE bottom (
+                        bottom_id SERIAL PRIMARY KEY,
+                        bottom_name TEXT NOT NULL,
+                        bottom_description TEXT,
+                        price NUMERIC
+);
 
-CREATE TABLE IF NOT EXISTS public.order_line
-(
-    order_number integer NOT NULL,
-    product_id integer NOT NULL,
-    quantity integer NOT NULL,
-    line_id serial NOT NULL,
-    PRIMARY KEY (line_id)
-    );
+CREATE TABLE top (
+                     top_id SERIAL PRIMARY KEY,
+                     top_name TEXT NOT NULL,
+                     top_description TEXT,
+                     price NUMERIC
+);
 
-CREATE TABLE IF NOT EXISTS public.product
-(
-    product_id serial NOT NULL,
-    category_id integer NOT NULL,
-    bottom_id integer NOT NULL,
-    top_id integer NOT NULL,
-    PRIMARY KEY (product_id)
-    );
+CREATE TABLE category (
+                          category_id SERIAL PRIMARY KEY,
+                          name TEXT NOT NULL,
+                          description TEXT
+);
 
-CREATE TABLE IF NOT EXISTS public.category
-(
-    category_id serial NOT NULL,
-    description character varying,
-    name character varying NOT NULL,
-    PRIMARY KEY (category_id)
-    );
+CREATE TABLE product (
+                         product_id SERIAL PRIMARY KEY,
+                         category_id INTEGER REFERENCES category(category_id),
+                         bottom_id INTEGER REFERENCES bottom(bottom_id),
+                         top_id INTEGER REFERENCES top(top_id)
+);
 
-CREATE TABLE IF NOT EXISTS public.top
-(
-    top_id serial NOT NULL,
-    top_name character varying NOT NULL,
-    top_description character varying,
-    PRIMARY KEY (top_id)
-    );
+CREATE TABLE "order" (
+                         order_number SERIAL PRIMARY KEY,
+                         user_id INTEGER NOT NULL REFERENCES "user"(user_id)
+);
 
-CREATE TABLE IF NOT EXISTS public.bottom
-(
-    bottom_id serial NOT NULL,
-    bottom_name character varying NOT NULL,
-    bottom_description character varying,
-    PRIMARY KEY (bottom_id)
-    );
+CREATE TABLE order_line (
+                            line_id SERIAL PRIMARY KEY,
+                            order_number INTEGER REFERENCES "order"(order_number),
+                            product_id INTEGER REFERENCES product(product_id),
+                            quantity INTEGER NOT NULL
+);
 
-ALTER TABLE IF EXISTS public."order"
-    ADD FOREIGN KEY (user_id)
-    REFERENCES public.user (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-       ON DELETE NO ACTION
-    NOT VALID;
+-- Indsæt data i bottom
+INSERT INTO bottom (bottom_name, bottom_description, price) VALUES
+                                                                ('Chocolate', 'Classic chocolate bottom', 5.00),
+                                                                ('Vanilla', 'Delicious vanilla bottom', 5.00),
+                                                                ('Nutmeg', 'Aromatic nutmeg bottom', 5.00),
+                                                                ('Pistachio', 'Green pistachio bottom', 6.00),
+                                                                ('Almond', 'Crunchy almond bottom', 7.00);
 
-ALTER TABLE IF EXISTS public.order_line
-    ADD FOREIGN KEY (order_number)
-    REFERENCES public."order" (order_number) MATCH SIMPLE
-    ON UPDATE NO ACTION
-       ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE IF EXISTS public.order_line
-    ADD FOREIGN KEY (product_id)
-    REFERENCES public.product (product_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-       ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE IF EXISTS public.product
-    ADD FOREIGN KEY (category_id)
-    REFERENCES public.category (category_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-       ON DELETE NO ACTION
-    NOT VALID;
+-- Indsæt data i top
+INSERT INTO top (top_name, top_description, price) VALUES
+                                                       ('Chocolate', 'Chocolate topping', 5.00),
+                                                       ('Blueberry', 'Blueberry topping', 5.00),
+                                                       ('Raspberry', 'Raspberry topping', 5.00),
+                                                       ('Crispy', 'Crispy topping', 6.00),
+                                                       ('Strawberry', 'Strawberry topping', 6.00),
+                                                       ('Rum/Raisin', 'Rum and raisin topping', 7.00),
+                                                       ('Orange', 'Orange topping', 8.00),
+                                                       ('Lemon', 'Lemon topping', 8.00),
+                                                       ('Blue cheese', 'Blue cheese topping', 9.00);
