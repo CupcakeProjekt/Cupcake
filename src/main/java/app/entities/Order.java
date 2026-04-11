@@ -2,20 +2,20 @@ package app.entities;
 
 import java.util.List;
 
-public class Ordre {
-    List<Ordrelinje> ordrelinjeList;
+public class Order {
+    List<Orderline> orderlineList;
     int orderNumber;
     int userID;
 
-    public Ordre( List<Ordrelinje> ordrelinjeList, int orderNumber, int userID) {
-        this.ordrelinjeList = ordrelinjeList;
+    public Order(List<Orderline> orderlineList, int orderNumber, int userID) {
+        this.orderlineList = orderlineList;
         this.orderNumber = orderNumber;
         this.userID = userID;
     }
 
 
-    public void setOrdrelinjeList(List<Ordrelinje> ordrelinjeList) {
-        this.ordrelinjeList = ordrelinjeList;
+    public void setOrdrelinjeList(List<Orderline> orderlineList) {
+        this.orderlineList = orderlineList;
     }
 
     public int getOrderNumber() {
