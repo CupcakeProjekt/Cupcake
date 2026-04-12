@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Ændring til">
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Changed all username to email">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/Cupcake.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/Cupcake.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/JS.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-profiles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-profiles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sql/Cupcake.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql/Cupcake.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/javascript/JS.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/create-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/create-user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +34,7 @@
         <option value="JUnit5 Test Class" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -82,6 +91,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.Main.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.login.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -89,7 +99,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Email",
+    "git-widget-placeholder": "AdminFunctions",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -279,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775927260570</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Changed all username to email">
+      <option name="closed" value="true" />
+      <created>1776009303089</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1776009303089</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +316,7 @@
     <MESSAGE value="Ændret navn på login.html til create-user.html" />
     <MESSAGE value="." />
     <MESSAGE value="Ændring til" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ændring til" />
+    <MESSAGE value="Changed all username to email" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed all username to email" />
   </component>
 </project>

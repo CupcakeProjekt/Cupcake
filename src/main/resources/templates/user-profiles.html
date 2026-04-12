@@ -43,32 +43,14 @@
     <div>
         <h1>Velkommen ombord</h1>
         <h2>Øens bedste cupcakes. Vælg og bestil her:</h2>
-        <div class="card">
-
-            <form method="post" th:action="@{/bestil}">
-                <p class="card-title">Vælg bund</p>
-
-                <div class="option-grid" th:each="bottom : ${bottoms}">
-                    <div class="option-name" th:text="${bottom.bottomName}"></div>
-                    <div class="option-price" th:text="${bottom.price} + 'kr'"></div>
-                    <input type="radio" name="bottom-id" th:value="${bottom.bottomID}" style="display: none">
-
-                </div>
-                <p class="card-title">Vælg top</p>
-                <div class="option-grid" th:each="top : ${tops}">
-                    <div class="option-name" th:text="${top.topName}"></div>
-                    <div class="option-price" th:text="${top.price} + 'kr'"></div>
-                    <input type="radio" name="bottom-id" th:value="${top.topID}" style="display: none">
-
-                </div>
-                <div class="card">
-                    <p class="card-title">Opsummering</p>
-                    <div class="summary-row"><span>Bund</span><span id="sum-bund">—</span></div>
-                    <div class="summary-row"><span>Topping</span><span id="sum-top">—</span></div>
-                    <div class="summary-row"><span>Antal</span><span id="sum-antal">1</span></div>
-                    <div class="total-row"><span>Total</span><span id="sum-total">— kr</span></div>
-
-                    <button class="bestil-btn" id="bestil-btn" type="submit" disabled>Læg i kurv</button>
+        <div class="user-overview" th:if="${user != null and user.role.name() == 'ADMIN'} ">
+            <form action="">
+                <div class="user" th:each="user : ${users}">
+                    <div th:text="${user.email}"></div>
+                    <div th:text="|ID: ${user.userID}|"></div>
+                    <div th:text="${user.role}"></div>
+                    <div th:text="|Balance: ${user.balance} kr|"></div>
+                    <button type="button" >Rediger bruger</button>
                 </div>
             </form>
         </div>
