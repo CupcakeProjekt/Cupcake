@@ -27,7 +27,7 @@ public class UserController {
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        String username = ctx.formParam("username");
+        String email = ctx.formParam("email");
         String password = ctx.formParam("password");
         String passwordRepeat = ctx.formParam("repeat-password");
         if (password == null) {
@@ -40,7 +40,7 @@ public class UserController {
             return;
         }
         try {
-            User user = UserMapper.createUser(username, password, connectionPool);
+            User user = UserMapper.createUser(email, password, connectionPool);
             ctx.sessionAttribute("currentUser", user);
             ctx.redirect("/home-page");
         } catch (DatabaseException e) {
@@ -49,11 +49,11 @@ public class UserController {
     }
 
     private static void login(Context ctx, ConnectionPool connectionPool) {
-        String username = ctx.formParam("username");
+        String email = ctx.formParam("email");
         String password = ctx.formParam("password");
 
         try {
-            User user = UserMapper.login(username, password, connectionPool);
+            User user = UserMapper.login(email, password, connectionPool);
             if(user == null){
 
             }
