@@ -113,3 +113,17 @@ h2 {
     font-family: Arial, sans-serif;
     font-size: clamp(16px, 2.5vw, 24px);
 }
+
+.error-msg{
+    color: red;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;        /* row (vandret) eller column (lodret) */
+    justify-content: center;    /* placering på hovedaksen */
+    align-items: center;        /* placering på tværaksen */
+    gap: 16px;                  /* mellemrum mellem elementer */
+    flex-wrap: wrap;            /* tillad linjeskift hvis der ikke er plads */
+
+}

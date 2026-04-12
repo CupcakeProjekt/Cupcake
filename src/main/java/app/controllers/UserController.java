@@ -19,9 +19,10 @@ public class UserController {
         app.get("/home-page", ctx -> renderHomePage(ctx, connectionPool));
     }
 
-    private static void renderHomePage(Context ctx, ConnectionPool connectionPool) {
+    private static void renderHomePage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         User user = ctx.sessionAttribute("currentUser");
         ctx.attribute("user", user);
+        addAllParts(ctx, connectionPool);
         ctx.render("home-page.html");
     }
 
@@ -31,9 +32,12 @@ public class UserController {
         String passwordRepeat = ctx.formParam("repeat-password");
         if (password == null) {
             ctx.attribute("errorMsg", "Password må ikke være tomt");
+            ctx.render("create-user.html");
             return;
         } else if (!password.equals(passwordRepeat)) {
             ctx.attribute("errorMsg", "Passwords matcher ikke!");
+            ctx.render("create-user.html");
+            return;
         }
         try {
             User user = UserMapper.createUser(username, password, connectionPool);
@@ -50,10 +54,14 @@ public class UserController {
 
         try {
             User user = UserMapper.login(username, password, connectionPool);
+            if(user == null){
+
+            }
             ctx.sessionAttribute("currentUser", user);
             ctx.redirect("/home-page");
         } catch (DatabaseException e) {
-            ctx.attribute("msg", e.getMessage());
+            ctx.attribute("errorMsg", "Brugernavn eller password forkert");
+            ctx.render("login.html");
         }
     }
 
