@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Ændring til">
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Tilføjet tops og bottoms til home-page.html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/create-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/create-user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Login",
+    "git-widget-placeholder": "#43 on OpretBruger",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -281,7 +281,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775927260570</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Bundet siderne sammen så man kan logge ind, oprette bruger og komme ind på en anden side end hvis man ikke er logget ind">
+      <option name="closed" value="true" />
+      <created>1776003468338</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1776003468338</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Tilføjet tops og bottoms til home-page.html">
+      <option name="closed" value="true" />
+      <created>1776006712060</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1776006712060</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +316,28 @@
     <MESSAGE value="Ændret navn på login.html til create-user.html" />
     <MESSAGE value="." />
     <MESSAGE value="Ændring til" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ændring til" />
+    <MESSAGE value="Bundet siderne sammen så man kan logge ind, oprette bruger og komme ind på en anden side end hvis man ikke er logget ind" />
+    <MESSAGE value="Tilføjet tops og bottoms til home-page.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tilføjet tops og bottoms til home-page.html" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/app/persistence/TopMapper.java</url>
+          <line>14</line>
+          <properties class="app.persistence.TopMapper" method="getAllTops">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

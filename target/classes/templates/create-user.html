@@ -28,7 +28,8 @@
 
     <label class="login-label" for="repeat-password">✅ Bekræft password</label>
     <input class="login-input" name="repeat-password" id="repeat-password" type="password"
-           placeholder="Skriv samme adgangskode igen" required/>
+           placeholder="Gentag password" required/>
+    <p class="error-msg" th:text="${errorMsg}"></p>
 
     <button class="submit-button" id="submit-button" type="submit">Opret bruger</button>
 

@@ -9,7 +9,7 @@
 
 <body class="signup-body">
 <header class="signup-header">
-    <a href="home-page.html" th:href="@{/}">
+    <a href="home-page.html" th:href="@{/home-page}">
         <img class="signup-logo" src="../static/images/cupcakeHeader.png" th:src="@{/images/cupcakeHeader.png}"
              alt="Cupcake logo"/>
     </a>
@@ -27,7 +27,7 @@
            required/>
 
     <button class="submit-button" id="submit-button" type="submit">Log ind</button>
-
+<p class="error-msg" th:text="${errorMsg}">Brugernavn eller password forkert</p>
     <div class="login-link">
         Ny til Olsker Cupcakes? <a th:href="@{/create-user-page}">Opret bruger</a>
     </div>
