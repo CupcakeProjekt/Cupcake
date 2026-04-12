@@ -114,7 +114,7 @@ h2 {
     font-size: clamp(16px, 2.5vw, 24px);
 }
 
-#error-msg{
+.error-msg{
     color: red;
 }
 

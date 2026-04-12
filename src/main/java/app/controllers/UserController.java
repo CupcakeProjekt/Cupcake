@@ -54,10 +54,14 @@ public class UserController {
 
         try {
             User user = UserMapper.login(username, password, connectionPool);
+            if(user == null){
+
+            }
             ctx.sessionAttribute("currentUser", user);
             ctx.redirect("/home-page");
         } catch (DatabaseException e) {
-            ctx.attribute("msg", e.getMessage());
+            ctx.attribute("errorMsg", "Brugernavn eller password forkert");
+            ctx.render("login.html");
         }
     }
 
