@@ -19,7 +19,7 @@ public class UserController {
         app.get("/home-page", ctx -> renderHomePage(ctx, connectionPool));
     }
 
-    private static void renderHomePage(Context ctx, ConnectionPool connectionPool){
+    private static void renderHomePage(Context ctx, ConnectionPool connectionPool) {
         User user = ctx.sessionAttribute("currentUser");
         ctx.attribute("user", user);
         ctx.render("home-page.html");
@@ -28,6 +28,13 @@ public class UserController {
     private static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String username = ctx.formParam("username");
         String password = ctx.formParam("password");
+        String passwordRepeat = ctx.formParam("repeat-password");
+        if (password == null) {
+            ctx.attribute("errorMsg", "Password må ikke være tomt");
+            return;
+        } else if (!password.equals(passwordRepeat)) {
+            ctx.attribute("errorMsg", "Passwords matcher ikke!");
+        }
         try {
             User user = UserMapper.createUser(username, password, connectionPool);
             ctx.sessionAttribute("currentUser", user);
