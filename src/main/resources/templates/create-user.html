@@ -15,21 +15,26 @@
     </a>
 </header>
 
-<form method="post" class="login-form" th:action="@{/login}">
-    <h2 class="form-title">✨ Log ind ✨</h2>
+<form method="post" class="login-form" th:action="@{/create-user}">
+    <h2 class="form-title">✨ Opret bruger ✨</h2>
 
-    <label class="login-label" for="email-input">🧁 Brugernavn</label>
-    <input class="login-input" name="email" id="email-input" type="text" placeholder="Indtast email"
+    <label class="login-label" for="email-input">🧁 Email</label>
+    <input class="login-input" name="email" id="email-input" type="text" placeholder="Indtast brugernavn"
            required/>
 
     <label class="login-label" for="password-input">🔒 Password</label>
     <input class="login-input" name="password" id="password-input" type="password" placeholder="Mindst 6 tegn"
            required/>
 
-    <button class="submit-button" id="submit-button" type="submit">Log ind</button>
-<p class="error-msg" th:text="${errorMsg}">Brugernavn eller password forkert</p>
+    <label class="login-label" for="repeat-password">✅ Bekræft password</label>
+    <input class="login-input" name="repeat-password" id="repeat-password" type="password"
+           placeholder="Gentag password" required/>
+    <p class="error-msg" th:text="${errorMsg}"></p>
+
+    <button class="submit-button" id="submit-button" type="submit">Opret bruger</button>
+
     <div class="login-link">
-        Ny til Olsker Cupcakes? <a th:href="@{/create-user-page}">Opret bruger</a>
+        Har du allerede en bruger? <a href="home-page.html" th:href="@{/login-page}">Log ind</a>
     </div>
 </form>
 </body>
