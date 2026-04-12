@@ -21,7 +21,7 @@ public class TopMapper {
         ) {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                int topID = rs.getInt("int_id");
+                int topID = rs.getInt("top_id");
                 String name = rs.getString("top_name");
                 String desc = rs.getString("top_description");
                 int price = rs.getInt("price");
