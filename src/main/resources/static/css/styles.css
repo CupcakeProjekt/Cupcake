@@ -90,6 +90,7 @@ nav {
     color: #959595;
     font-family: Arial, sans-serif;
     font-size: clamp(12px, 2vw, 18px);
+    cursor: pointer;
 }
 
 main {
