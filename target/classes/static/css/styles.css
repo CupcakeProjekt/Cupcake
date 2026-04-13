@@ -93,11 +93,20 @@ nav {
     cursor: pointer;
 }
 
+.cartIcon {
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
 main {
+    display: flex;
+    flex-direction: column;
     background: #f0f0f0;
     border-radius: 8px;
     padding: 60px;
-    min-height: 400px;
+    height: 500px;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -112,6 +121,64 @@ h2 {
     margin-bottom: 20px;
     font-family: Arial, sans-serif;
     font-size: clamp(16px, 2.5vw, 24px);
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.dropdownMenuWrap {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cart-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+
+select {
+    display: block;
+    width: 260px;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.total-row {
+    border-top: 1px solid #ddd;
+    padding-top: 12px;
+    font-weight: bold;
+}
+
+.cartBottonWrap {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.orderBotton {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    background: #2f73ff;
+    color: white;
+    cursor: pointer;
+}
+
+.orderBotton:disabled {
+    background: #b8c7ef;
+    cursor: not-allowed;
 }
 
 .error-msg{
