@@ -17,6 +17,7 @@ public class UserController {
         app.post("/create-user", ctx -> createUser(ctx, connectionPool));
         app.get("/index", ctx -> addAllParts(ctx, connectionPool));
         app.get("/home-page", ctx -> renderHomePage(ctx, connectionPool));
+        app.get("/admin-page", ctx -> renderAdminPage(ctx, connectionPool));
     }
 
     private static void renderHomePage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -24,6 +25,17 @@ public class UserController {
         ctx.attribute("user", user);
         addAllParts(ctx, connectionPool);
         ctx.render("home-page.html");
+    }
+
+    private static void renderAdminPage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        User user = ctx.sessionAttribute("currentUser");
+        assert user != null;
+        if(user.getRole() == Role.ADMIN){
+            ctx.attribute("user", user);
+            List<User> users = UserMapper.getAllUsers(connectionPool);
+            ctx.attribute("users", users);
+            ctx.render("user-profiles.html");
+        }
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {

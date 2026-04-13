@@ -7,6 +7,13 @@ public class User {
     Role role;
     int balance;
 
+    public User(int userID, String email, Role role, int balance) {
+        this.userID = userID;
+        this.email = email;
+        this.role = role;
+        this.balance = balance;
+    }
+
     public User(int userID, String email, String password, Role role, int balance) {
         this.userID = userID;
         this.email = email;
@@ -39,11 +46,11 @@ public class User {
         this.password = password;
     }
 
-    public Role getRolle() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRolle(Role role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
