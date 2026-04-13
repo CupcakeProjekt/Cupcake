@@ -24,7 +24,7 @@
 </header>
 <nav>
     <div class="navLeftWrap">
-        <p class="navText">Ordre</p>
+        <a class="navText">Ordre</a>
         <p class="navText" th:if="user.role == 'ADMIN'">Kunder</p>
     </div>
     <div th:if="${user != null}" class="navRightWrap">
@@ -49,7 +49,7 @@
                     <div th:text="|Ordrenummer: ${order.orderNumber}|"></div>
                     <div th:text="|Pris: ${order.cost}|"></div>
                     <div th:text="|ID: ${order.userID}|"></div>
-                    <button type="button" >Rediger bruger</button>
+                    <button type="button" >Slet ordre</button>
                 </div>
             </form>
         </div>

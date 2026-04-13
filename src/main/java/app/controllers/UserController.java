@@ -18,6 +18,7 @@ public class UserController {
         app.get("/index", ctx -> addAllParts(ctx, connectionPool));
         app.get("/home-page", ctx -> renderHomePage(ctx, connectionPool));
         app.get("/admin-page", ctx -> renderAdminPage(ctx, connectionPool));
+        app.get("/order-page", ctx -> renderOrderPage(ctx, connectionPool));
     }
 
     private static void renderHomePage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -29,16 +30,25 @@ public class UserController {
 
     private static void renderAdminPage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         User user = ctx.sessionAttribute("currentUser");
-        if(user == null){
+        if (user == null) {
             ctx.render("home-page.html");
             return;
         }
-        if(user.getRole() == Role.ADMIN){
+        if (user.getRole() == Role.ADMIN) {
             ctx.attribute("user", user);
             List<Order> orders = OrderMapper.getAllOrders(connectionPool);
             ctx.attribute("orders", orders);
             ctx.render("user-profiles.html");
         }
+    }
+
+    private static void renderOrderPage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        User user = ctx.sessionAttribute("currentUser");
+        ctx.attribute("user", user);
+        List<Orderline> orderlines = ctx.sessionAttribute("currentOrder");
+        orderlines = OrderMapper.getAllOrderlines(connectionPool);
+        ctx.attribute("orderlines", orderlines);
+        ctx.render("order-page.html");
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -69,7 +79,7 @@ public class UserController {
 
         try {
             User user = UserMapper.login(email, password, connectionPool);
-            if(user == null){
+            if (user == null) {
 
             }
             ctx.sessionAttribute("currentUser", user);
