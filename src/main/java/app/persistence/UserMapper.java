@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserMapper {
 
@@ -48,5 +50,27 @@ public class UserMapper {
             throw new DatabaseException("Fejl ved oprettelse", e.getMessage());
         }
         return UserMapper.login(email, password, connectionPool);
+    }
+
+    public static List<User> getAllUsers(ConnectionPool connectionPool) throws DatabaseException {
+        List<User> userList = new ArrayList<>();
+        String sql = "SELECT * FROM users";
+        try(
+                Connection c = connectionPool.getConnection();
+                PreparedStatement ps = c.prepareStatement(sql);
+                ) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                int ID = rs.getInt("user_id");
+                String email = rs.getString("email");
+                String roleString = rs.getString("role");
+                Role role = Role.valueOf(roleString.toUpperCase());
+                int balance = rs.getInt("balance");
+                userList.add(new User(ID, email, role, balance));
+            }
+            return userList;
+        } catch (SQLException e) {
+            throw new DatabaseException("msg", "fejl ved hetning af brugere");
+        }
     }
 }
