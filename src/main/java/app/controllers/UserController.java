@@ -29,11 +29,14 @@ public class UserController {
 
     private static void renderAdminPage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         User user = ctx.sessionAttribute("currentUser");
-        assert user != null;
+        if(user == null){
+            ctx.render("home-page.html");
+            return;
+        }
         if(user.getRole() == Role.ADMIN){
             ctx.attribute("user", user);
-            List<User> users = UserMapper.getAllUsers(connectionPool);
-            ctx.attribute("users", users);
+            List<Order> orders = OrderMapper.getAllOrders(connectionPool);
+            ctx.attribute("orders", orders);
             ctx.render("user-profiles.html");
         }
     }
