@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Changed all username to email">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/order.js" afterDir="false" />
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added admin page with function to see orders from costumers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/JS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-profiles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-profiles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sql/Cupcake.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql/Cupcake.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/javascript/JS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/create-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/create-user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +61,9 @@
     &quot;repository&quot;: &quot;Cupcake&quot;
   }
 }</component>
+  <component name="JvmLoggingSettingsStorage">
+    <option name="loggerId" value="Slf4j" />
+  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -95,11 +84,12 @@
     "JavaScript Debug.login.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "AdminFunctions",
+    "git-widget-placeholder": "#49 on Adminv2",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -297,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776009303089</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added admin page with function to see orders from costumers">
+      <option name="closed" value="true" />
+      <created>1776092638587</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1776092638587</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +315,27 @@
     <MESSAGE value="." />
     <MESSAGE value="Ændring til" />
     <MESSAGE value="Changed all username to email" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed all username to email" />
+    <MESSAGE value="Added admin page with function to see orders from costumers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added admin page with function to see orders from costumers" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java</url>
+          <line>37</line>
+          <properties class="app.persistence.OrderMapper">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

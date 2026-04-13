@@ -5,6 +5,23 @@ public class Cupcake {
     int categoryID;
     Bottom bottom;
     Topping topping;
+    int cost;
+
+    public Bottom getBottom() {
+        return bottom;
+    }
+
+    public void setBottom(Bottom bottom) {
+        this.bottom = bottom;
+    }
+
+    public int getCost() {
+        return bottom.getPrice() + topping.getPrice();
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
 
     public Cupcake(Bottom bottom, Topping topping) {
         this.bottom = bottom;

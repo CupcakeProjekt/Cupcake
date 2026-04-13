@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SignUp - Cupcake glæde</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
+</head>
+
+<body class="signup-body">
+<header class="signup-header">
+    <a href="home-page.html" th:href="@{/home-page}">
+        <img class="signup-logo" src="../static/images/cupcakeHeader.png" th:src="@{/images/cupcakeHeader.png}"
+             alt="Cupcake logo"/>
+    </a>
+</header>
+
+<form method="post" class="login-form" th:action="@{/create-user}">
+    <h2 class="form-title">✨ Opret bruger ✨</h2>
+
+    <label class="login-label" for="email-input">🧁 Email</label>
+    <input class="login-input" name="email" id="email-input" type="text" placeholder="Indtast brugernavn"
+           required/>
+
+    <label class="login-label" for="password-input">🔒 Password</label>
+    <input class="login-input" name="password" id="password-input" type="password" placeholder="Mindst 6 tegn"
+           required/>
+
+    <label class="login-label" for="repeat-password">✅ Bekræft password</label>
+    <input class="login-input" name="repeat-password" id="repeat-password" type="password"
+           placeholder="Gentag password" required/>
+    <p class="error-msg" th:text="${errorMsg}"></p>
+
+    <button class="submit-button" id="submit-button" type="submit">Opret bruger</button>
+
+    <div class="login-link">
+        Har du allerede en bruger? <a href="home-page.html" th:href="@{/login-page}">Log ind</a>
+    </div>
+</form>
+</body>
+</html>
