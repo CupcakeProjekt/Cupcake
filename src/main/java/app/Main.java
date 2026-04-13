@@ -25,6 +25,6 @@ public static void main(String[] args)
 
     // Routing
 
-    app.get("/", ctx ->  ctx.render("create-user.html"));
+    app.get("/", ctx ->  ctx.render("home-page.html"));
     UserController.addRouts(app, connectionPool);
 }}
