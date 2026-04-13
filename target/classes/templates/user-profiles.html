@@ -45,11 +45,10 @@
         <h2>Øens bedste cupcakes. Vælg og bestil her:</h2>
         <div class="user-overview" th:if="${user != null and user.role.name() == 'ADMIN'} ">
             <form action="">
-                <div class="user" th:each="user : ${users}">
-                    <div th:text="${user.email}"></div>
-                    <div th:text="|ID: ${user.userID}|"></div>
-                    <div th:text="${user.role}"></div>
-                    <div th:text="|Balance: ${user.balance} kr|"></div>
+                <div class="user" th:each="order : ${orders}">
+                    <div th:text="|Ordrenummer: ${order.orderNumber}|"></div>
+                    <div th:text="|Pris: ${order.cost}|"></div>
+                    <div th:text="|ID: ${order.userID}|"></div>
                     <button type="button" >Rediger bruger</button>
                 </div>
             </form>
