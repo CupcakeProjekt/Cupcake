@@ -1,19 +1,18 @@
 package app.entities;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Order {
     List<Orderline> orderlineList = new ArrayList<>();
     int orderNumber;
-    int userID;
+    User user;
     int cost;
 
-    public Order(List<Orderline> orderlineList, int orderNumber, int userID) {
+    public Order(List<Orderline> orderlineList, int orderNumber, User user) {
         this.orderlineList = orderlineList;
         this.orderNumber = orderNumber;
-        this.userID = userID;
+        this.user = user;
     }
 
 
@@ -21,10 +20,10 @@ public class Order {
         this.orderlineList = orderlineList;
     }
 
-    public Order(List<Orderline> orderlineList, int orderNumber, int userID, int cost) {
+    public Order(List<Orderline> orderlineList, int orderNumber, User user, int cost) {
         this.orderlineList = orderlineList;
         this.orderNumber = orderNumber;
-        this.userID = userID;
+        this.user = user;
         this.cost = cost;
     }
 
@@ -50,9 +49,9 @@ public class Order {
         orderlineList.add(ol);
     }
 
-    public Order(int orderNumber, int userID) {
+    public Order(int orderNumber, User user) {
         this.orderNumber = orderNumber;
-        this.userID = userID;
+        this.user = user;
     }
 
     public int getOrderNumber() {
@@ -63,11 +62,11 @@ public class Order {
         this.orderNumber = orderNumber;
     }
 
-    public int getUserID() {
-        return userID;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -45,8 +45,9 @@ public class OrderMapper {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int orderNumber = rs.getInt("order_number");
-                int user_id = rs.getInt("user_id");
-                orderList.add(new Order(orderNumber, user_id));
+                int userID = rs.getInt("user_id");
+                User user = UserMapper.getUserByID(cp, userID);
+                orderList.add(new Order(orderNumber, user));
             }
         } catch (SQLException e) {
             throw new DatabaseException("Problem med at hente orders", e.getMessage());
