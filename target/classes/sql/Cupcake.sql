@@ -6,7 +6,7 @@ CREATE SCHEMA public;
 CREATE TABLE users
 (
     user_id  SERIAL PRIMARY KEY,
-    name     TEXT NOT NULL,
+    email     TEXT NOT NULL,
     password TEXT NOT NULL,
     address  TEXT[],
     role     TEXT DEFAULT 'USER',
