@@ -132,9 +132,144 @@ h2 {
     -moz-appearance: textfield !important;
     appearance: textfield !important;
 }
+#amount-val::-webkit-outer-spin-button,
+#amount-val::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+.card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    max-width: 600px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 1rem;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s;
+}
+
+.option-grid:hover {
+    border-color: #aaa;
+}
+
+.option-grid.selected {
+    border: 2px solid #D85A30;
+    background: #FAECE7;
+}
+
+.option-name {
+    font-weight: 500;
+    font-size: 13px;
+    color: #333;
+}
+
+.option-price {
+    font-size: 12px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.option-grid.selected .option-name {
+    color: #712B13;
+}
+
+.option-grid.selected .option-price {
+    color: #993C1D;
+}
+
+.counter-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 1rem 0;
+}
+
+.counter-wrap button {
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.counter-wrap button:hover {
+    border-color: #aaa;
+}
+
+#amount-val {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+}
 
 #amount-val::-webkit-outer-spin-button,
 #amount-val::-webkit-inner-spin-button {
     -webkit-appearance: none !important;
     margin: 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 6px 0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #666;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 12px;
+}
+
+.bestil-btn {
+    width: 100%;
+    padding: 12px;
+    background: #D85A30;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.bestil-btn:hover {
+    background: #993C1D;
+}
+
+.bestil-btn:disabled {
+    background: #e0e0e0;
+    color: #aaa;
+    cursor: not-allowed;
 }
