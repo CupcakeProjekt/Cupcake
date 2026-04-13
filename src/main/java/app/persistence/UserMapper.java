@@ -55,12 +55,12 @@ public class UserMapper {
     public static List<User> getAllUsers(ConnectionPool connectionPool) throws DatabaseException {
         List<User> userList = new ArrayList<>();
         String sql = "SELECT * FROM users";
-        try(
+        try (
                 Connection c = connectionPool.getConnection();
                 PreparedStatement ps = c.prepareStatement(sql);
-                ) {
+        ) {
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 int ID = rs.getInt("user_id");
                 String email = rs.getString("email");
                 String roleString = rs.getString("role");
@@ -71,6 +71,26 @@ public class UserMapper {
             return userList;
         } catch (SQLException e) {
             throw new DatabaseException("msg", "fejl ved hetning af brugere");
+        }
+    }
+
+    public static User getUserByID(ConnectionPool connectionPool, int userID) throws DatabaseException {
+        String sql = "SELECT * FROM users WHERE user_id=?";
+
+        try (
+                Connection c = connectionPool.getConnection();
+                PreparedStatement ps = c.prepareStatement(sql)
+        ) {
+            ps.setInt(1, userID);
+            ResultSet rs = ps.executeQuery();
+            String email = rs.getString("email");
+            String roleString = rs.getString("role");
+            Role role = Role.valueOf(roleString.toUpperCase());
+            int balance = rs.getInt("balance");
+            return new User(userID, email, role, balance);
+
+        } catch (SQLException e) {
+            throw new DatabaseException("Problem med at finde user med userID", e.getMessage());
         }
     }
 }
