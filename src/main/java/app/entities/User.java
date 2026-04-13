@@ -1,5 +1,5 @@
 package app.entities;
-
+//User
 public class User {
     int userID;
     String email;
