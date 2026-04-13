@@ -21,7 +21,7 @@ function update() {
 }
 
 function countMinus() {
-    amountCounter.value = Math.max(1, parseInt(amountCounter.value) + 1)
+    amountCounter.value = Math.max(1, parseInt(amountCounter.value) - 1)
     update()
 }
 
