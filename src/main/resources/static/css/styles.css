@@ -127,3 +127,14 @@ h2 {
     flex-wrap: wrap;            /* tillad linjeskift hvis der ikke er plads */
 
 }
+
+#amount-val {
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+}
+
+#amount-val::-webkit-outer-spin-button,
+#amount-val::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
