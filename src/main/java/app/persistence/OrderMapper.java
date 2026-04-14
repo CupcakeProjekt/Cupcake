@@ -15,18 +15,21 @@ public class OrderMapper {
 
     public static int addOrderToDatabase(ConnectionPool cp, int userID) {
         String sql = "INSERT INTO orders (user_id) VALUES (?) RETURNING order_number";
-        try(
+        int orderNumber = -1;
+        try (
                 Connection c = cp.getConnection();
                 PreparedStatement preparedStatement = c.prepareStatement(sql)
-                ) {
+        ) {
             preparedStatement.setInt(1, userID);
-          ResultSet resultSet =  preparedStatement.executeQuery();
-          int orderNumber = resultSet.getInt("order_number");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                orderNumber = resultSet.getInt("order_number");
+            }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return userID;
+        return orderNumber;
     }
 
     public static void addOrderlineToOrder(ConnectionPool connectionPool, int bottomID, int topID, int amount, int orderNumber) throws DatabaseException {
