@@ -25,6 +25,7 @@ public class UserController {
         app.post("/order", ctx -> addOrderToDatabase(ctx, connectionPool));
         app.get("/customer-page", ctx -> renderCustomerPage(ctx, connectionPool));
         app.post("/admin-remove-order", ctx -> adminRemoveOrder(ctx, connectionPool));
+        app.post("/remove-orderline", UserController::removeOrderlineFromCart);
     }
 
     private static void renderHomePage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -54,7 +55,7 @@ public class UserController {
         List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
         int totalPrice = 0;
         if (!(orderlineList == null || orderlineList.isEmpty())) {
-            for(Orderline line : orderlineList){
+            for (Orderline line : orderlineList) {
                 totalPrice = totalPrice + line.getCost();
             }
             ctx.attribute("totalCost", totalPrice);
@@ -196,5 +197,10 @@ public class UserController {
         OrderMapper.removeOrderWithID(cp, orderNumber);
 
         ctx.redirect("/admin-order-page");
+    public static void removeOrderlineFromCart(Context ctx) {
+        int index = Integer.parseInt(ctx.formParam("lineIndex"));
+        List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
+        orderlineList.remove(index);
+        ctx.redirect("/order-page");
     }
 }
