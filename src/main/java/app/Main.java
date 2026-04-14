@@ -25,7 +25,6 @@ public class Main {
         }).start(7070);
 
         // Routing
-
         UserController.addRouts(app, connectionPool);
         app.get("/", ctx -> ctx.redirect("home-page"));
     }
