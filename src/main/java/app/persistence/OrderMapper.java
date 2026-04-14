@@ -26,6 +26,7 @@ public class OrderMapper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return userID;
     }
 
     public static void addOrderlineToOrder(ConnectionPool connectionPool, int bottomID, int topID, int amount, int orderNumber) throws DatabaseException {

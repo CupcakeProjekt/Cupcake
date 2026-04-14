@@ -68,6 +68,10 @@ header {
     height: auto;
 }
 
+a {
+    align-items: center;
+}
+
 nav {
     margin: 15px 0px 15px 0px;
     background: #f0f0f0;
@@ -184,6 +188,8 @@ select {
 
 .error-msg{
     color: red;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
 }
 
 .main-container {
@@ -404,4 +410,60 @@ select {
 .user button:hover {
     background: #5a2a7a;
     transform: scale(1.02);
+}
+
+.login-label {
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.login-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    border: 1px solid #ba9f94;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.loginWrap {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.loginBottonWrap {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    background: #2f73ff;
+    color: white;
+    cursor: pointer;
+}
+
+.login-link {
+    margin-top: 20px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.login-link a {
+    color: #2f73ff;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
 }
