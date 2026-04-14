@@ -24,8 +24,8 @@
 </header>
 <nav>
     <div class="navLeftWrap">
-        <p class="navText">Ordre</p>
-        <p class="navText" th:if="user.role == 'ADMIN'">Kunder</p>
+        <a class="navText" th:href="@{/home-page}">Hjem</a>
+        <a class="navText" th:if="${user != null and user.role.name() == 'ADMIN'}" th:href="@{/customer-page}">Kunder</a>
     </div>
     <div th:if="${user != null}" class="navRightWrap">
         <p class="navText" th:text="${user.email}">noreply@cphbusiness.dk</p>
