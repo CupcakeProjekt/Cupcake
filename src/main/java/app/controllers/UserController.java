@@ -190,13 +190,15 @@ public class UserController {
         ctx.render("customer-page.html");
     }
 
-    public  static void adminRemoveOrder(Context ctx, ConnectionPool cp) throws DatabaseException {
+    public static void adminRemoveOrder(Context ctx, ConnectionPool cp) throws DatabaseException {
 
         int orderNumber = Integer.parseInt(ctx.formParam("orderNumber"));
 
         OrderMapper.removeOrderWithID(cp, orderNumber);
 
         ctx.redirect("/admin-order-page");
+    }
+
     public static void removeOrderlineFromCart(Context ctx) {
         int index = Integer.parseInt(ctx.formParam("lineIndex"));
         List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
@@ -204,3 +206,4 @@ public class UserController {
         ctx.redirect("/order-page");
     }
 }
+
