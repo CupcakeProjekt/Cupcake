@@ -13,12 +13,23 @@ import java.util.stream.Collectors;
 
 public class OrderMapper {
 
-    public static void addOrderToDatabase() {
+    public static int addOrderToDatabase(ConnectionPool cp, int userID) {
+        String sql = "INSERT INTO orders (user_id) VALUES (?) RETURNING order_number";
+        try(
+                Connection c = cp.getConnection();
+                PreparedStatement preparedStatement = c.prepareStatement(sql)
+                ) {
+            preparedStatement.setInt(1, userID);
+          ResultSet resultSet =  preparedStatement.executeQuery();
+          int orderNumber = resultSet.getInt("order_number");
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static void addOrderlineToOrder(ConnectionPool connectionPool, int bottomID, int topID, int amount) {
-        String sql = "INSERT INTO order_line (bottom_id, top_id, quantity) VALUES (?, ?, ?)";
+    public static void addOrderlineToOrder(ConnectionPool connectionPool, int bottomID, int topID, int amount, int orderNumber) throws DatabaseException {
+        String sql = "INSERT INTO order_line (bottom_id, top_id, quantity, order_number) VALUES (?, ?, ?, ?)";
 
         try (
                 Connection c = connectionPool.getConnection();
@@ -29,9 +40,10 @@ public class OrderMapper {
             ps.setInt(1, bottomID);
             ps.setInt(2, topID);
             ps.setInt(3, amount);
+            ps.setInt(4, orderNumber);
             ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DatabaseException("Problem med at indsætte ordrelinjerne", e.getMessage());
         }
     }
 
