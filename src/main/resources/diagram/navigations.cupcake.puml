@@ -1,0 +1,24 @@
+@startuml
+state "Forside\n(menu synlig)" as forside
+state "Log ind side\n(har Opret bruger link)" as login
+state "Opret bruger side" as opret
+state "Bestilling side\n(vælg bund/top/antal)" as bestilling
+state "Kurv side\n(viser bestilte varer)" as kurv
+state "Ordre bekræftelse" as bekræft
+
+[*] --> forside
+
+forside --> login : Klik på "Log ind"
+
+login --> bestilling : Login OK
+login --> opret : Klik på "Opret bruger"
+
+opret --> bestilling : Opret bruger OK
+
+bestilling --> kurv : Klik "Læg i kurv"
+kurv --> bestilling : Klik "Ordre" / fortsæt
+kurv --> bekræft : Klik "Bestil"
+
+bekræft --> [*]
+
+@enduml
