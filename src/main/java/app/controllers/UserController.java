@@ -129,7 +129,7 @@ public class UserController {
 
         User user = ctx.sessionAttribute("currentUser");
         if (null == user) {
-            ctx.redirect("/login");
+            ctx.redirect("/login-page");
             return;
         }
         List<Orderline> currentOrder = ctx.sessionAttribute("currentOrder");
