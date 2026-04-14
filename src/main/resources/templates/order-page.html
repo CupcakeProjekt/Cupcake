@@ -24,7 +24,7 @@
 </header>
 <nav>
     <div class="navLeftWrap">
-        <p class="navText">Ordre</p>
+        <p class="navText" th:href="@{/home-page}">Hjem</p>
         <p class="navText" th:if="user.role == 'ADMIN'">Kunder</p>
     </div>
     <div th:if="${user != null}" class="navRightWrap">

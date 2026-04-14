@@ -18,7 +18,7 @@ public class UserController {
         app.post("/create-user", ctx -> createUser(ctx, connectionPool));
         app.get("/index", ctx -> addAllParts(ctx, connectionPool));
         app.get("/home-page", ctx -> renderHomePage(ctx, connectionPool));
-        app.get("/admin-page", ctx -> renderAdminPage(ctx, connectionPool));
+        app.get("/admin-order-page", ctx -> renderAdminPage(ctx, connectionPool));
         app.get("/order-page", ctx -> renderOrderPage(ctx, connectionPool));
         app.post("/add-to-cart", ctx -> saveOrderInSession(ctx, connectionPool));
         app.post("/order", ctx -> addOrderToDatabase(ctx, connectionPool));
@@ -42,16 +42,22 @@ public class UserController {
             ctx.attribute("user", user);
             List<Order> orders = OrderMapper.getAllOrders(connectionPool);
             ctx.attribute("orders", orders);
-            ctx.render("user-profiles.html");
+            ctx.render("order-admin-page.html");
         }
     }
 
     public static void renderOrderPage(Context ctx, ConnectionPool connectionPool) {
         User user = ctx.sessionAttribute("currentUser");
-        ctx.attribute("user", user);
-        List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
-        ctx.attribute("cart", orderlineList);
-        ctx.render("order-page.html");
+        if (user == null) {
+            ctx.render("home-page.html");
+            return;
+        }
+        if (user.getRole() == Role.ADMIN) {
+            ctx.attribute("user", user);
+            List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
+            ctx.attribute("cart", orderlineList);
+            ctx.render("order-page.html");
+        }
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
