@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added admin page with function to see orders from costumers">
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added the function to add orders to db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/order-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/order-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Bruger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Orderline.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Orderline.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Rolle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/OrderMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/createUser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/order-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/order-page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +77,6 @@
     &quot;repository&quot;: &quot;Cupcake&quot;
   }
 }</component>
-  <component name="JvmLoggingSettingsStorage">
-    <option name="loggerId" value="Slf4j" />
-  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -84,12 +97,11 @@
     "JavaScript Debug.login.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "#49 on Adminv2",
+    "git-widget-placeholder": "Test-for-adding-order-to-session",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -287,15 +299,39 @@
       <option name="project" value="LOCAL" />
       <updated>1776009303089</updated>
     </task>
-    <task id="LOCAL-00016" summary="Added admin page with function to see orders from costumers">
+    <task id="LOCAL-00016" summary="Changed variables in Order from userID to user, and added method to find user by id in sql">
       <option name="closed" value="true" />
-      <created>1776092638587</created>
+      <created>1776112365695</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1776092638587</updated>
+      <updated>1776112365695</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added so you can view your order in order-page.html">
+      <option name="closed" value="true" />
+      <created>1776116683707</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1776116683707</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fixed so you can see dropdown menu for ordering in home-page.html">
+      <option name="closed" value="true" />
+      <created>1776117690976</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1776117690976</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added the function to add orders to db">
+      <option name="closed" value="true" />
+      <created>1776120020888</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1776120020888</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,27 +351,11 @@
     <MESSAGE value="." />
     <MESSAGE value="Ændring til" />
     <MESSAGE value="Changed all username to email" />
-    <MESSAGE value="Added admin page with function to see orders from costumers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added admin page with function to see orders from costumers" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java</url>
-          <line>37</line>
-          <properties class="app.persistence.OrderMapper">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Changed variables in Order from userID to user" />
+    <MESSAGE value="Changed variables in Order from userID to user, and added method to find user by id in sql" />
+    <MESSAGE value="Added so you can view your order in order-page.html" />
+    <MESSAGE value="Fixed so you can see dropdown menu for ordering in home-page.html" />
+    <MESSAGE value="Added the function to add orders to db" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the function to add orders to db" />
   </component>
 </project>

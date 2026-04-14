@@ -6,6 +6,7 @@ import app.persistence.*;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
@@ -18,6 +19,8 @@ public class UserController {
         app.get("/index", ctx -> addAllParts(ctx, connectionPool));
         app.get("/home-page", ctx -> renderHomePage(ctx, connectionPool));
         app.get("/admin-page", ctx -> renderAdminPage(ctx, connectionPool));
+        app.get("/order-page", ctx -> renderOrderPage(ctx, connectionPool));
+        app.post("/bestil", ctx -> saveOrderInSession(ctx, connectionPool));
     }
 
     private static void renderHomePage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -29,16 +32,24 @@ public class UserController {
 
     private static void renderAdminPage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         User user = ctx.sessionAttribute("currentUser");
-        if(user == null){
+        if (user == null) {
             ctx.render("home-page.html");
             return;
         }
-        if(user.getRole() == Role.ADMIN){
+        if (user.getRole() == Role.ADMIN) {
             ctx.attribute("user", user);
             List<Order> orders = OrderMapper.getAllOrders(connectionPool);
             ctx.attribute("orders", orders);
             ctx.render("user-profiles.html");
         }
+    }
+
+    public static void renderOrderPage(Context ctx, ConnectionPool connectionPool){
+        User user = ctx.sessionAttribute("CurrentUser");
+        ctx.attribute("user", user);
+        List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
+        ctx.attribute("cart", orderlineList);
+        ctx.render("order-page.html");
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -69,7 +80,7 @@ public class UserController {
 
         try {
             User user = UserMapper.login(email, password, connectionPool);
-            if(user == null){
+            if (user == null) {
 
             }
             ctx.sessionAttribute("currentUser", user);
@@ -92,13 +103,24 @@ public class UserController {
         ctx.attribute("bottoms", bottoms);
     }
 
-    private static void addOrderToDatabase(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+    private static void saveOrderInSession(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         int topID = Integer.parseInt(ctx.formParam("top-id"));
         int bottomID = Integer.parseInt(ctx.formParam("bottom-id"));
         int amount = Integer.parseInt(ctx.formParam("amount"));
 
-        OrderMapper.addOrderlineToOrder(connectionPool, bottomID, topID, amount);
+        System.out.println("Top: " + topID + " Bottom: " + bottomID + " Antal: " + amount);
 
+        List<Orderline> currentOrder = ctx.sessionAttribute("currentOrder");
+        if (null == currentOrder) {
+            currentOrder = new ArrayList<>();
+        }
+        Bottom bottom = BottomMapper.getBottomByID(connectionPool, bottomID);
+        Topping topping = TopMapper.getToppingByID(connectionPool, topID);
+        Cupcake cupcake = new Cupcake(bottom, topping);
+        currentOrder.add(new Orderline(cupcake, amount));
+
+        ctx.sessionAttribute("currentOrder", currentOrder);
+        ctx.redirect("/home-page");
 
     }
 }

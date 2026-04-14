@@ -2,6 +2,7 @@ const amountCounter = document.querySelector('#amount-input')
 
 let choice = {bottom: null, bottomPrice: 0, top: null, topPrice: 0}
 
+
 function choose(type, el) {
     let name = el.dataset.name
     let price = parseInt(el.dataset.price)

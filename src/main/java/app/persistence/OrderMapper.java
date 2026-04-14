@@ -51,7 +51,9 @@ public class OrderMapper {
             }
         } catch (SQLException e) {
             throw new DatabaseException("Problem med at hente orders", e.getMessage());
-        }
+        } catch (DatabaseException e) {
+        throw e;
+    }
 
         List<Orderline> orderlineList = getAllOrderlines(cp);
 

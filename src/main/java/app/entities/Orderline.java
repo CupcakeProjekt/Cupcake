@@ -48,6 +48,11 @@ public class Orderline {
         this.amount = amount;
     }
 
+    public Orderline(Cupcake cupcake, int amount) {
+        this.cupcake = cupcake;
+        this.amount = amount;
+    }
+
     public Orderline(Cupcake cupcake, int lineID, int orderNumber, int cost, int amount) {
         this.cupcake = cupcake;
         this.lineID = lineID;
