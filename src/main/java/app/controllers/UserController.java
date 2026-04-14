@@ -22,6 +22,7 @@ public class UserController {
         app.get("/order-page", ctx -> renderOrderPage(ctx, connectionPool));
         app.post("/add-to-cart", ctx -> saveOrderInSession(ctx, connectionPool));
         app.post("/order", ctx -> addOrderToDatabase(ctx, connectionPool));
+        app.get("/customer-page", ctx -> renderCustomerPage(ctx, connectionPool));
     }
 
     private static void renderHomePage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -128,5 +129,25 @@ public class UserController {
     public static void addOrderToDatabase(Context ctx, ConnectionPool connectionPool) {
 
 
+    }
+
+    private static void renderCustomerPage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        User currentUser = ctx.sessionAttribute("currentUser");
+
+        if (currentUser == null) {
+            ctx.redirect("/login-page");
+            return;
+        }
+
+        if (currentUser.getRole() != Role.ADMIN) {
+            ctx.redirect("/home-page");
+            return;
+        }
+
+        List<User> users = UserMapper.getAllUsers(connectionPool);
+
+        ctx.attribute("user", currentUser);
+        ctx.attribute("users", users);
+        ctx.render("customer-page.html");
     }
 }

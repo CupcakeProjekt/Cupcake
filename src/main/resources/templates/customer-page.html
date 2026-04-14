@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>Frontpage</title>
+    <title>Customer Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
-
 <body>
     <header class="header">
         <div class="headerLogo">
@@ -25,7 +24,7 @@
     <nav>
         <div class="navLeftWrap">
             <a class="navText" th:href="@{/order-page}">Ordre</a>
-            <a class="navText" th:if="${user != null and user.role.name() == 'ADMIN'}" th:href="@{/customer-page}">Kunder</a>
+            <a class="navText" th:href="@{/customer-page}">Kunder</a>
         </div>
         <div th:if="${user != null}" class="navRightWrap">
             <p class="navText" th:text="${user.email}">noreply@cphbusiness.dk</p>
@@ -38,51 +37,22 @@
         <div th:if="${user == null}" class="navRightWrap">
             <a class="navText" th:href="@{/login-page}">Log ind</a>
         </div>
-
     </nav>
+
     <main>
-        <h1>Velkommen ombord</h1>
-        <h2>Øens bedste cupcakes. Vælg og bestil her:</h2>
+        <div class="header-section">
+            <h1>Kunder</h1>
+        </div>
 
-        <form method="post" th:action="@{/add-to-cart}">
-
-            <div class="dropdownMenuWrap">
-                <select name="bottom-id" id="bottom-select" onchange="update()">
-                    <option value="" disabled selected>Vælg bund</option>
-                    <option th:each="bottom : ${bottoms}"
-                            th:value="${bottom.bottomID}"
-                            th:data-name="${bottom.bottomName}"
-                            th:data-price="${bottom.price}"
-                            th:text="${bottom.bottomName} + ' - ' + ${bottom.price} + ' kr'">
-                    </option>
-                </select>
-
-                <select name="top-id" id="top-select" onchange="update()">
-                    <option value="" disabled selected>Vælg top</option>
-                    <option th:each="top : ${tops}"
-                            th:value="${top.topID}"
-                            th:data-name="${top.topName}"
-                            th:data-price="${top.price}"
-                            th:text="${top.topName} + ' - ' + ${top.price} + ' kr'">
-                    </option>
-                </select>
-
-                <select name="amount" id="amount-select" onchange="update()">
-                    <option value="" disabled selected>Vælg antal</option>
-                    <option th:each="i : ${#numbers.sequence(1,12)}"
-                            th:value="${i}"
-                            th:text="${i}">
-                    </option>
-                </select>
+        <div class="user-list" th:if="${users != null}">
+            <div class="user" th:each="customer : ${users}">
+                <div th:text="|ID: ${customer.userID}|"></div>
+                <div th:text="|Email: ${customer.email}|"></div>
+                <div th:text="|Rolle: ${customer.role}|"></div>
+                <div th:text="|Saldo: ${customer.balance}|"></div>
             </div>
-
-            <div class="cartBottonWrap">
-                <button class="orderBotton" id="bestil-btn" type="submit" disabled>
-                    Læg i kurv
-                </button>
-            </div>
-        </form>
+        </div>
     </main>
-    <script src="/js/dropdownMenu.js"></script>
+
 </body>
 </html>
