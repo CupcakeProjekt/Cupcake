@@ -55,6 +55,12 @@ public class ConnectionPool
         return instance;
     }
 
+    public static ConnectionPool getTestInstance(String user, String password, String url, String db) {
+        ds = createHikariConnectionPool(user, password, url, db);
+        instance = new ConnectionPool();
+        return instance;
+    }
+
     /***
      * Getting a live connection from a Hikari Connection Pool
      * @return a database connection to be used in sql requests
