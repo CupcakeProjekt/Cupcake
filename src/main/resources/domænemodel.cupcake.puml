@@ -1,0 +1,35 @@
+@startuml
+!theme plain
+
+title Domænemodel - Cupcake Shop
+
+class User {
+  email
+  role
+  balance
+}
+
+class Order {
+  order_number
+}
+
+class OrderLine {
+  quantity
+}
+
+class Bottom {
+  bottom_name
+  price
+}
+
+class Topping {
+  top_name
+  price
+}
+
+User "1" -- "0..*" Order : har
+Order "1" -- "1..*" OrderLine : indeholder
+OrderLine "*" -- "1" Bottom : bruger
+OrderLine "*" -- "1" Topping : bruger
+
+@enduml
