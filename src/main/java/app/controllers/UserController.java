@@ -46,7 +46,7 @@ public class UserController {
     }
 
     public static void renderOrderPage(Context ctx, ConnectionPool connectionPool) {
-        User user = ctx.sessionAttribute("CurrentUser");
+        User user = ctx.sessionAttribute("currentUser");
         ctx.attribute("user", user);
         List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
         ctx.attribute("cart", orderlineList);
@@ -109,12 +109,11 @@ public class UserController {
         int bottomID = Integer.parseInt(ctx.formParam("bottom-id"));
         int amount = Integer.parseInt(ctx.formParam("amount"));
 
-        System.out.println("Top: " + topID + " Bottom: " + bottomID + " Antal: " + amount);
-
         List<Orderline> currentOrder = ctx.sessionAttribute("currentOrder");
         if (null == currentOrder) {
             currentOrder = new ArrayList<>();
         }
+
         Bottom bottom = BottomMapper.getBottomByID(connectionPool, bottomID);
         Topping topping = TopMapper.getToppingByID(connectionPool, topID);
         Cupcake cupcake = new Cupcake(bottom, topping);
@@ -125,8 +124,37 @@ public class UserController {
 
     }
 
-    public static void addOrderToDatabase(Context ctx, ConnectionPool connectionPool) {
+    public static void addOrderToDatabase(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
 
+        User user = ctx.sessionAttribute("currentUser");
+        if (null == user) {
+            ctx.redirect("/login");
+            return;
+        }
+        List<Orderline> currentOrder = ctx.sessionAttribute("currentOrder");
+
+        if (null == currentOrder || currentOrder.isEmpty()) {
+            ctx.attribute("msg", "Der er ikke noget i kurven");
+            ctx.redirect("/home-page");
+            return;
+        }
+        int userID = user.getUserID();
+
+        int orderNumber = OrderMapper.addOrderToDatabase(connectionPool, userID);
+
+
+        for (Orderline orderline : currentOrder) {
+            int topID = orderline.getCupcake().getTopping().getTopID();
+            int bottomID = orderline.getCupcake().getBase().getBottomID();
+
+            int amount = orderline.getAmount();
+
+            OrderMapper.addOrderlineToOrder(connectionPool, bottomID, topID, amount, orderNumber);
+        }
+
+        ctx.sessionAttribute("currentOrder", null);
+
+        ctx.redirect("/order-page");
 
     }
 }
