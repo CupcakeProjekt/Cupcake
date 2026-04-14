@@ -24,6 +24,7 @@ public class UserController {
         app.post("/add-to-cart", ctx -> saveOrderInSession(ctx, connectionPool));
         app.post("/order", ctx -> addOrderToDatabase(ctx, connectionPool));
         app.get("/customer-page", ctx -> renderCustomerPage(ctx, connectionPool));
+        app.post("/admin-remove-order", ctx -> adminRemoveOrder(ctx, connectionPool));
     }
 
     private static void renderHomePage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -186,5 +187,14 @@ public class UserController {
         ctx.attribute("user", currentUser);
         ctx.attribute("users", users);
         ctx.render("customer-page.html");
+    }
+
+    public  static void adminRemoveOrder(Context ctx, ConnectionPool cp) throws DatabaseException {
+
+        int orderNumber = Integer.parseInt(ctx.formParam("orderNumber"));
+
+        OrderMapper.removeOrderWithID(cp, orderNumber);
+
+        ctx.redirect("/admin-order-page");
     }
 }

@@ -83,12 +83,14 @@ public class UserMapper {
         ) {
             ps.setInt(1, userID);
             ResultSet rs = ps.executeQuery();
-            String email = rs.getString("email");
-            String roleString = rs.getString("role");
-            Role role = Role.valueOf(roleString.toUpperCase());
-            int balance = rs.getInt("balance");
-            return new User(userID, email, role, balance);
-
+            if (rs.next()) {
+                String email = rs.getString("email");
+                String roleString = rs.getString("role");
+                Role role = Role.valueOf(roleString.toUpperCase());
+                int balance = rs.getInt("balance");
+                return new User(userID, email, role, balance);
+            }
+            return null;
         } catch (SQLException e) {
             throw new DatabaseException("Problem med at finde user med userID", e.getMessage());
         }

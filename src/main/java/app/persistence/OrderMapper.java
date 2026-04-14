@@ -106,4 +106,27 @@ public class OrderMapper {
             throw new DatabaseException("Problem med at hente orderlines", e.getMessage());
         }
     }
+
+    public static void removeOrderWithID(ConnectionPool cp, int orderID) throws DatabaseException {
+
+        String sql1 = "DELETE FROM order_line WHERE order_number=?";
+        String sql2 = "DELETE FROM orders WHERE order_number=?";
+
+        try(
+                Connection c = cp.getConnection();
+                PreparedStatement ps1 = c.prepareStatement(sql1);
+                PreparedStatement ps2 = c.prepareStatement(sql2)
+                ) {
+
+            ps1.setInt(1, orderID);
+            ps2.setInt(1, orderID);
+            ps1.executeUpdate();
+            ps2.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DatabaseException("Problem med at fjerne ordre eller ordrelinje");
+        }
+
+    }
+
 }
