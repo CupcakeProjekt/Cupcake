@@ -97,7 +97,11 @@ public class UserController {
         int bottomID = Integer.parseInt(ctx.formParam("bottom-id"));
         int amount = Integer.parseInt(ctx.formParam("amount"));
 
-        OrderMapper.addOrderlineToOrder(connectionPool, bottomID, topID, amount);
+        User user = ctx.sessionAttribute("currentUser");
+        // TODO gør så man kun kan tjekke ud når man er logget ind
+        int orderID = OrderMapper.addOrderToDatabase(connectionPool, user.getUserID());
+
+        OrderMapper.addOrderlineToOrder(connectionPool, bottomID, topID, amount, orderID);
 
 
     }
