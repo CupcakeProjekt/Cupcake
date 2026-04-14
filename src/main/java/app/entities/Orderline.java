@@ -7,6 +7,11 @@ public class Orderline {
     int cost;
     int amount;
 
+    public Orderline(Cupcake cupcake, int amount) {
+        this.cupcake = cupcake;
+        this.amount = amount;
+    }
+
     public Cupcake getCupcake() {
         return cupcake;
     }
