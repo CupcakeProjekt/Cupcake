@@ -24,8 +24,9 @@
 </header>
 <nav>
     <div class="navLeftWrap">
-        <p class="navText" th:href="@{/home-page}">Hjem</p>
-        <p class="navText" th:if="user.role == 'ADMIN'">Kunder</p>
+        <a class="navText" th:href="@{/home-page}">Hjem</a>
+        <a class="navText" th:if="${user != null and user.role.name() == 'ADMIN'}" th:href="@{/admin-order-page}">Kunders ordre</a>
+        <a class="navText" th:if="${user != null and user.role.name() == 'ADMIN'}" th:href="@{/customer-page}">Kunder</a>
     </div>
     <div th:if="${user != null}" class="navRightWrap">
         <p class="navText" th:text="${user.email}">noreply@cphbusiness.dk</p>
@@ -52,6 +53,7 @@
                     <div th:text="|Antal: ${orderline.amount}|"></div>
                     <button type="button" >Rediger ordre</button>
                 </div>
+                <div class="total-price" th:text="|Totalpris: ${totalCost}kr|"></div>
                 <button type="submit">Bestil</button>
             </form>
         </div>

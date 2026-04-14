@@ -7,6 +7,7 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class UserController {
@@ -48,16 +49,18 @@ public class UserController {
 
     public static void renderOrderPage(Context ctx, ConnectionPool connectionPool) {
         User user = ctx.sessionAttribute("currentUser");
-        if (user == null) {
-            ctx.render("home-page.html");
-            return;
+        ctx.attribute("user", user);
+        List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
+        int totalPrice = 0;
+        if (!(orderlineList == null || orderlineList.isEmpty())) {
+            for(Orderline line : orderlineList){
+                totalPrice = totalPrice + line.getCost();
+            }
+            ctx.attribute("totalCost", totalPrice);
         }
-        if (user.getRole() == Role.ADMIN) {
-            ctx.attribute("user", user);
-            List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
-            ctx.attribute("cart", orderlineList);
-            ctx.render("order-page.html");
-        }
+
+        ctx.attribute("cart", orderlineList);
+        ctx.render("order-page.html");
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
