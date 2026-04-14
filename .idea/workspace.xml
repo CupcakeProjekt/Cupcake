@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added the function to add orders to db">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f7316b4f-0962-4783-aaed-11d0d5f2e1e0" name="Changes" comment="Added the function to add orders to cart">
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/order-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/order-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Bruger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Orderline.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Orderline.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Rolle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/OrderMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/createUser.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/order-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/order-page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Test-for-adding-order-to-session" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -101,7 +86,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Test-for-adding-order-to-session",
+    "git-widget-placeholder": "#55 on Test-for-adding-order-to-session",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -331,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776120020888</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added the function to add orders to cart">
+      <option name="closed" value="true" />
+      <created>1776148436275</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1776148436275</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +349,7 @@
     <MESSAGE value="Added so you can view your order in order-page.html" />
     <MESSAGE value="Fixed so you can see dropdown menu for ordering in home-page.html" />
     <MESSAGE value="Added the function to add orders to db" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the function to add orders to db" />
+    <MESSAGE value="Added the function to add orders to cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the function to add orders to cart" />
   </component>
 </project>

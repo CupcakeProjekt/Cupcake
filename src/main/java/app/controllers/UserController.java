@@ -20,7 +20,8 @@ public class UserController {
         app.get("/home-page", ctx -> renderHomePage(ctx, connectionPool));
         app.get("/admin-page", ctx -> renderAdminPage(ctx, connectionPool));
         app.get("/order-page", ctx -> renderOrderPage(ctx, connectionPool));
-        app.post("/bestil", ctx -> saveOrderInSession(ctx, connectionPool));
+        app.post("/add-to-cart", ctx -> saveOrderInSession(ctx, connectionPool));
+        app.post("/order", ctx -> addOrderToDatabase(ctx, connectionPool));
     }
 
     private static void renderHomePage(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -44,7 +45,7 @@ public class UserController {
         }
     }
 
-    public static void renderOrderPage(Context ctx, ConnectionPool connectionPool){
+    public static void renderOrderPage(Context ctx, ConnectionPool connectionPool) {
         User user = ctx.sessionAttribute("CurrentUser");
         ctx.attribute("user", user);
         List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
@@ -121,6 +122,11 @@ public class UserController {
 
         ctx.sessionAttribute("currentOrder", currentOrder);
         ctx.redirect("/home-page");
+
+    }
+
+    public static void addOrderToDatabase(Context ctx, ConnectionPool connectionPool) {
+
 
     }
 }

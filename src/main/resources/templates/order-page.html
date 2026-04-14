@@ -44,12 +44,12 @@
         <h1>Velkommen ombord</h1>
         <h2>Øens bedste cupcakes. Vælg og bestil her:</h2>
         <div class="order-overview">
-            <form action="">
+            <form action="post">
                 <div class="user" th:each="orderline : ${cart}">
                     <div th:text="|Top: ${orderline.cupcake.topping.topName}|"></div>
                     <div th:text="|Bund: ${orderline.cupcake.bottom.bottomName}|"></div>
                     <div th:text="|Pris: ${orderline.cost}|"></div>
-                    <div th:text="|Pris: ${orderline.amount}|"></div>
+                    <div th:text="|Antal: ${orderline.amount}|"></div>
                     <button type="button" >Rediger ordre</button>
                 </div>
             </form>
