@@ -1,0 +1,26 @@
+@startuml
+start
+
+:Bruger åbner hjemmesiden;
+
+if (Har bruger konto?) then (ja)
+  :Log ind;
+else (nej)
+  :Opret bruger;
+endif
+
+:Bruger vælger bund og topping;
+
+:Bruger trykker "Læg i kurv";
+:Bruger vælger ordre;
+:Vis kurvens indhold;
+
+if (Bruger trykker "Bestil"?) then (ja)
+  :Gem ordre i databasen;
+  :Vis "Ordre modtaget";
+else (nej)
+  -> tilbage til menu;
+endif
+
+stop
+@enduml
