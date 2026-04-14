@@ -51,7 +51,8 @@
                     <div th:text="|Bund: ${orderline.cupcake.bottom.bottomName}|"></div>
                     <div th:text="|Pris: ${orderline.cost}|"></div>
                     <div th:text="|Antal: ${orderline.amount}|"></div>
-                    <button type="button" >Rediger ordre</button>
+                    <input type="hidden" name="lineIndex" th:value="${orderlineStat.index}"/>
+                    <button type="submit" th:formaction="@{/remove-orderline}">🗑</button>
                 </div>
                 <div class="total-price" th:text="|Totalpris: ${totalCost}kr|"></div>
                 <button type="submit">Bestil</button>
