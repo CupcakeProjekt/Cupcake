@@ -44,12 +44,12 @@
         <h1>Velkommen ombord</h1>
         <h2>Øens bedste cupcakes. Vælg og bestil her:</h2>
         <div class="user-overview" th:if="${user != null and user.role.name() == 'ADMIN'} ">
-            <form action="">
+            <form method="post" th:action="@{/admin-remove-order}">
                 <div class="user" th:each="order : ${orders}">
                     <div th:text="|Ordrenummer: ${order.orderNumber}|"></div>
                     <div th:text="|Pris: ${order.cost}|"></div>
-                    <div th:text="|ID: ${order.userID}|"></div>
-                    <button type="button" >Rediger ordre</button>
+                    <div th:text="|ID: ${order.user.userID}|"></div>
+                    <button type="submit" name="orderNumber" th:value="${order.orderNumber}">🗑</button>
                 </div>
             </form>
         </div>

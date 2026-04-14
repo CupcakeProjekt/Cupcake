@@ -24,6 +24,7 @@ public class UserController {
         app.post("/add-to-cart", ctx -> saveOrderInSession(ctx, connectionPool));
         app.post("/order", ctx -> addOrderToDatabase(ctx, connectionPool));
         app.get("/customer-page", ctx -> renderCustomerPage(ctx, connectionPool));
+        app.post("/admin-remove-order", ctx -> adminRemoveOrder(ctx, connectionPool));
         app.post("/remove-orderline", UserController::removeOrderlineFromCart);
     }
 
@@ -189,6 +190,13 @@ public class UserController {
         ctx.render("customer-page.html");
     }
 
+    public  static void adminRemoveOrder(Context ctx, ConnectionPool cp) throws DatabaseException {
+
+        int orderNumber = Integer.parseInt(ctx.formParam("orderNumber"));
+
+        OrderMapper.removeOrderWithID(cp, orderNumber);
+
+        ctx.redirect("/admin-order-page");
     public static void removeOrderlineFromCart(Context ctx) {
         int index = Integer.parseInt(ctx.formParam("lineIndex"));
         List<Orderline> orderlineList = ctx.sessionAttribute("currentOrder");
