@@ -44,7 +44,7 @@
             <h1>Kunder</h1>
         </div>
 
-        <div class="user-list" th:if="${users != null}">
+        <div class="user-list" th:if="${user != null and user.role.name() == 'ADMIN'}">
             <div class="user" th:each="customer : ${users}">
                 <div th:text="|ID: ${customer.userID}|"></div>
                 <div th:text="|Email: ${customer.email}|"></div>
