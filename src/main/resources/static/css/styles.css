@@ -489,3 +489,33 @@ select {
 .user div {
     word-break: break-word;
 }
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navLeftWrap, .navRightWrap {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .dropdownMenuWrap {
+        flex-direction: column;
+    }
+
+    select, button {
+        width: 100%;
+    }
+
+    .loginWrap {
+        flex-direction: column;
+    }
+}
