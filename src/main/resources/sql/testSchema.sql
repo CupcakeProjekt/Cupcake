@@ -1,6 +1,6 @@
 -- Dropper hele schema
-DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;
+DROP SCHEMA test CASCADE;
+CREATE SCHEMA test;
 
 -- Opret tabeller i den rigtige rækkefølge (først dem der ikke afhænger af andre)
 CREATE TABLE test.users
