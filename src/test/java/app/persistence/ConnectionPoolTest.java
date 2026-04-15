@@ -2,6 +2,7 @@ package app.persistence;
 
 import org.junit.jupiter.api.Test;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConnectionPoolTest {
@@ -13,13 +14,30 @@ class ConnectionPoolTest {
 
     @Test
     void getInstance() {
+        // Arrange
+        String user = "postgres";
+        String password = "postgres";
+        String url = "jdbc:postgresql://localhost:5432/%s?currentSchema=test";
+        String db = "Cupcake";
+
+        // Act
+        ConnectionPool pool = ConnectionPool.getInstance(user, password, url, db);
+
+        // Assert
+        assertNotNull(pool);;
+
+        // den skal også fejler så:
+        //assertNotNull(pool);
+
     }
 
     @Test
     void getConnection() {
+        assertNotNull(connectionPool);
+
+        // tjek for hvis testen fejler
+        //assertNull(connectionPool);
+
     }
 
-    @Test
-    void close() {
-    }
 }
