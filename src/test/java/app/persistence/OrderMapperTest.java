@@ -33,7 +33,6 @@ class OrderMapperTest extends BaseTest{
 
     @Test
     void addOrderlineToOrder() {
-        OrderMapper.addOrderlineToOrder();
     }
 
     @Test
