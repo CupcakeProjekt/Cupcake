@@ -23,9 +23,8 @@ public class TopMapper {
             while (rs.next()) {
                 int topID = rs.getInt("top_id");
                 String name = rs.getString("top_name");
-                String desc = rs.getString("top_description");
                 int price = rs.getInt("price");
-                toppingList.add(new Topping(topID, name, desc, price));
+                toppingList.add(new Topping(topID, name, price));
 
             }
             return toppingList;
@@ -45,9 +44,8 @@ public class TopMapper {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 String name = rs.getString("top_name");
-                String desc = rs.getString("top_description");
                 int price = rs.getInt("price");
-               return new Topping(ID, name, desc, price);
+               return new Topping(ID, name, price);
             } else {
                 throw new DatabaseException("Ingen topping fundet med ID: " + ID);
             }

@@ -48,7 +48,7 @@
                 <div class="user" th:each="order : ${orders}">
                     <div th:text="|Ordrenummer: ${order.orderNumber}|"></div>
                     <div th:text="|Pris: ${order.cost}|"></div>
-                    <div th:text="|ID: ${order.user.userID}|"></div>
+                    <div th:text="|Email: ${order.user.email}|"></div>
                     <button type="submit" name="orderNumber" th:value="${order.orderNumber}">🗑</button>
                 </div>
             </form>

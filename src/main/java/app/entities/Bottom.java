@@ -14,17 +14,15 @@ public class Bottom {
         this.price = price;
     }
 
-    public Bottom(int bottomID, String bottomName, String bottomDesc, int price) {
+    public Bottom(int bottomID, String bottomName, int price) {
         this.bottomID = bottomID;
         this.bottomName = bottomName;
-        this.bottomDesc = bottomDesc;
         this.price = price;
     }
 
-    public Bottom(int bottomID, String bottomName, String bottomDesc) {
+    public Bottom(int bottomID, String bottomName) {
         this.bottomID = bottomID;
         this.bottomName = bottomName;
-        this.bottomDesc = bottomDesc;
     }
 
     public int getBottomID() {

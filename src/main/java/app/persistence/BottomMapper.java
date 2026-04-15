@@ -23,8 +23,7 @@ public class BottomMapper {
                 int bottomID = rs.getInt("bottom_id");
                 int price = rs.getInt("price");
                 String name = rs.getString("bottom_name");
-                String desc = rs.getString("bottom_description");
-                bottomList.add(new Bottom(bottomID, name, desc, price));
+                bottomList.add(new Bottom(bottomID, name, price));
             }
             return bottomList;
         } catch (SQLException e) {
@@ -41,9 +40,8 @@ public class BottomMapper {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 String name = rs.getString("bottom_name");
-                String desc = rs.getString("bottom_description");
                 int price = rs.getInt("price");
-                return new Bottom(ID, name, desc, price);
+                return new Bottom(ID, name, price);
             } else {
                 throw new DatabaseException("Ingen bund fundet med ID: " + ID);
             }
