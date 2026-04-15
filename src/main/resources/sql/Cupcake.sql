@@ -8,7 +8,6 @@ CREATE TABLE users
     user_id  SERIAL PRIMARY KEY,
     email     TEXT NOT NULL,
     password TEXT NOT NULL,
-    address  TEXT[],
     role     TEXT DEFAULT 'USER',
     balance  BIGINT
 );
@@ -17,7 +16,6 @@ CREATE TABLE bottom
 (
     bottom_id          SERIAL PRIMARY KEY,
     bottom_name        TEXT NOT NULL,
-    bottom_description TEXT,
     price              NUMERIC
 );
 
@@ -25,15 +23,7 @@ CREATE TABLE top
 (
     top_id          SERIAL PRIMARY KEY,
     top_name        TEXT NOT NULL,
-    top_description TEXT,
     price           NUMERIC
-);
-
-CREATE TABLE category
-(
-    category_id SERIAL PRIMARY KEY,
-    name        TEXT NOT NULL,
-    description TEXT
 );
 
 CREATE TABLE orders
@@ -52,21 +42,21 @@ CREATE TABLE order_line
 );
 
 -- Indsæt data i bottom
-INSERT INTO bottom (bottom_name, bottom_description, price)
-VALUES ('Chocolate', 'Classic chocolate bottom', 5.00),
-       ('Vanilla', 'Delicious vanilla bottom', 5.00),
-       ('Nutmeg', 'Aromatic nutmeg bottom', 5.00),
-       ('Pistachio', 'Green pistachio bottom', 6.00),
-       ('Almond', 'Crunchy almond bottom', 7.00);
+INSERT INTO bottom (bottom_name, price)
+VALUES ('Chocolate', 5.00),
+       ('Vanilla', 5.00),
+       ('Nutmeg', 5.00),
+       ('Pistachio', 6.00),
+       ('Almond', 7.00);
 
 -- Indsæt data i top
-INSERT INTO top (top_name, top_description, price)
-VALUES ('Chocolate', 'Chocolate topping', 5.00),
-       ('Blueberry', 'Blueberry topping', 5.00),
-       ('Raspberry', 'Raspberry topping', 5.00),
-       ('Crispy', 'Crispy topping', 6.00),
-       ('Strawberry', 'Strawberry topping', 6.00),
-       ('Rum/Raisin', 'Rum and raisin topping', 7.00),
-       ('Orange', 'Orange topping', 8.00),
-       ('Lemon', 'Lemon topping', 8.00),
-       ('Blue cheese', 'Blue cheese topping', 9.00);
+INSERT INTO top (top_name, price)
+VALUES ('Chocolate', 5.00),
+       ('Blueberry', 5.00),
+       ('Raspberry', 5.00),
+       ('Crispy', 6.00),
+       ('Strawberry', 6.00),
+       ('Rum/Raisin', 7.00),
+       ('Orange', 8.00),
+       ('Lemon', 8.00),
+       ('Blue cheese', 9.00);
