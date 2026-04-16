@@ -16,6 +16,12 @@ public class BaseTest {
     protected static final String DB = "Cupcake";
     protected static ConnectionPool connectionPool;
 
+    @BeforeAll
+    static void initConnectionPool() {
+        // Opret connectionPool FØR tests kører
+        connectionPool = ConnectionPool.getInstance(USER, PASSWORD, URL, DB);
+    }
+
 
     @BeforeEach
    public void resetDatabase() throws SQLException {
