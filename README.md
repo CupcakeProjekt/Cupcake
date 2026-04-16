@@ -1,1 +1,4 @@
 # Cupcake
+Fabian
+Mikkel
+Nali
