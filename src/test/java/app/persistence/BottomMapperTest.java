@@ -22,6 +22,7 @@ class BottomMapperTest extends BaseTest {
     void getAllBottoms() throws DatabaseException {
         List<Bottom> bottoms = BottomMapper.getAllBottoms(connectionPool);
         assertNotNull(bottoms);
+        assertFalse(bottoms.isEmpty());
     }
 
 
