@@ -2,7 +2,6 @@ package app.entities;
 
 public class Cupcake {
     int productID;
-    int categoryID;
     Bottom bottom;
     Topping topping;
     int cost;
@@ -36,14 +35,6 @@ public class Cupcake {
         this.productID = productID;
     }
 
-    public int getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(int categoryID) {
-        this.categoryID = categoryID;
-    }
-
     public Bottom getBase() {
         return bottom;
     }
@@ -60,10 +51,9 @@ public class Cupcake {
         this.topping = topping;
     }
 
-    public Cupcake(Bottom bottom, int productID, int categoryID, Topping topping) {
+    public Cupcake(Bottom bottom, int productID, Topping topping) {
         this.bottom = bottom;
         this.productID = productID;
-        this.categoryID = categoryID;
         this.topping = topping;
     }
 }

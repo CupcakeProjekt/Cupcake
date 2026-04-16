@@ -136,6 +136,7 @@ public class UserController {
 
     }
 
+
     public static void addOrderToDatabase(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
 
         User user = ctx.sessionAttribute("currentUser");
@@ -146,6 +147,7 @@ public class UserController {
         List<Orderline> currentOrder = ctx.sessionAttribute("currentOrder");
 
         if (null == currentOrder || currentOrder.isEmpty()) {
+            //TODO i stedet for at reroute, så få den til at vise beskeden
             ctx.attribute("msg", "Der er ikke noget i kurven");
             ctx.redirect("/home-page");
             return;

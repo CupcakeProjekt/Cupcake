@@ -1,26 +1,41 @@
 @startuml
+|Kunde|
 start
-
 :Bruger åbner hjemmesiden;
 
-if (Har bruger konto?) then (ja)
-  :Log ind;
-else (nej)
-  :Opret bruger;
-endif
 
-:Bruger vælger bund og topping;
+:Bruger vælger bund, topping og antal;
 
 :Bruger trykker "Læg i kurv";
-:Bruger vælger ordre;
+:Bruger trykker "ordre";
 :Vis kurvens indhold;
-
-if (Bruger trykker "Bestil"?) then (ja)
-  :Gem ordre i databasen;
-  :Vis "Ordre modtaget";
+:Bruger trykker "bestil";
+if (Er bruger logget ind?) then (ja)
+|System|
+  :Ordre bliver sendt til databasen;
+  |Kunde|
 else (nej)
-  -> tilbage til menu;
+if(Bruger har konto) then (ja)
+  :Bruger logger ind;
+  else(nej)
+  :Bruger trykker "opret konto";
+  |System|
+  :Konto bliver sendt til databasen;
+  |Kunde|
+  :Bruger logger ind;
+  :Bruger trykker "bestil";
 endif
+|System|
+
+:Gemmer ordre;
+:Sender ordre til bageri;
+
+|Admin (medarbejder)|
+:Logger ind i admin;
+:Trykker "ordre";
+:Ser brugere og deres ordrer;
+:Vælger ordre;
+:Forbereder cupcakes;
 
 stop
 @enduml

@@ -1,35 +1,41 @@
 @startuml
-!theme plain
-
-title Domænemodel - Cupcake Shop
-
 class User {
+  userID
   email
-  role
   balance
 }
 
-class Order {
-  order_number
+class Role {
+  roleName
 }
 
-class OrderLine {
-  quantity
+class Order {
+  orderNumber
+  totalCost
 }
+
+class Orderline {
+  amount
+  lineCost
+}
+
+class Cupcake
 
 class Bottom {
-  bottom_name
+  bottomName
   price
 }
 
 class Topping {
-  top_name
+  topName
   price
 }
 
-User "1" -- "0..*" Order : har
-Order "1" -- "1..*" OrderLine : indeholder
-OrderLine "*" -- "1" Bottom : bruger
-OrderLine "*" -- "1" Topping : bruger
+User "1" --> "1" Role : har
+User "1" --> "0..*" Order : afgiver
+Order "1" --> "1..*" Orderline : består af
+Orderline "1" --> "1" Cupcake : indeholder
+Cupcake "1" --> "1" Bottom : har
+Cupcake "1" --> "1" Topping : har
 
 @enduml

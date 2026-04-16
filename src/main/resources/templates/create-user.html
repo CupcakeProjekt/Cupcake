@@ -4,7 +4,7 @@
         <title>SignUp - Cupcake glæde</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../static/css/login.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+        <link th:href="@{/css/styles.css}" rel="stylesheet"/>
     </head>
 
     <body class="signup-body">
@@ -28,7 +28,7 @@
 
         <nav>
             <div class="navLeftWrap">
-                <p class="navText">Ordre</p>
+                <a class="navText" th:href="@{/home-page}">Hjem</a>
                 <a class="navText" th:if="${user != null and user.role.name() == 'ADMIN'}" th:href="@{/admin-page}">Kunder</a>
             </div>
             <div th:if="${user != null}" class="navRightWrap">

@@ -1,24 +1,38 @@
 @startuml
-state "Forside\n(menu synlig)" as forside
-state "Log ind side\n(har Opret bruger link)" as login
-state "Opret bruger side" as opret
-state "Bestilling side\n(vælg bund/top/antal)" as bestilling
-state "Kurv side\n(viser bestilte varer)" as kurv
-state "Ordre bekræftelse" as bekræft
+top to bottom direction
 
-[*] --> forside
+package "Fælles sider" {
+  [home-page]
+  [login]
+  [create-user]
+  [order-page]
+}
 
-forside --> login : Klik på "Log ind"
+package "Kun admin" {
+  [customer-page]
+  [order-admin-page]
+}
 
-login --> bestilling : Login OK
-login --> opret : Klik på "Opret bruger"
+[home-page] --> [login] : Login
+[login] --> [create-user] : Registrer
 
-opret --> bestilling : Opret bruger OK
+[home-page] --> [order-page] : Ordrer
+[home-page] --> [customer-page] : Kunder
+[customer-page] --> [order-admin-page] : Se kunders ordrer
 
-bestilling --> kurv : Klik "Læg i kurv"
-kurv --> bestilling : Klik "Ordre" / fortsæt
-kurv --> bekræft : Klik "Bestil"
+note right of [order-page]
+Kun kunde:
+- ser egne ordrelinjer
+- klikker "Bestil"
+end note
 
-bekræft --> [*]
+note right of [order-admin-page]
+Kun admin:
+- ser alle ordrer
+end note
+
+note right of [customer-page]
+Kun synlig for admin
+end note
 
 @enduml

@@ -23,6 +23,7 @@
     </header>
     <nav>
         <div class="navLeftWrap">
+            <a class="navText" th:href="@{/home-page}">Hjem</a>
             <a class="navText" th:href="@{/order-page}">Ordre</a>
             <a class="navText" th:if="${user != null and user.role.name() == 'ADMIN'}" th:href="@{/admin-order-page}">Kunders ordre</a>
         </div>
