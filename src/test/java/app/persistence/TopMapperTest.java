@@ -16,6 +16,7 @@ class TopMapperTest extends BaseTest {
         // Assert - tjek at der er top
         assertNotNull(tops);
         assertFalse(tops.isEmpty());
+
     }
 
     @Test
