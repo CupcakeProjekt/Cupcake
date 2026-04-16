@@ -1,4 +1,2 @@
 # Cupcake
-Fabian
-Mikkel
-Nali
+Fabian - Mikkel -Nali
