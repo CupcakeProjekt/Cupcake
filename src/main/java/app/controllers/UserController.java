@@ -14,6 +14,7 @@ public class UserController {
 
     public static void addRouts(Javalin app, ConnectionPool connectionPool) {
         app.post("/login", ctx -> login(ctx, connectionPool));
+        app.post("/logout", UserController::logout);
         app.get("/login-page", ctx -> ctx.render("/login.html"));
         app.get("/create-user-page", ctx -> ctx.render("/create-user.html"));
         app.post("/create-user", ctx -> createUser(ctx, connectionPool));
@@ -106,7 +107,12 @@ public class UserController {
 
     private static void logout(Context ctx) {
         ctx.req().getSession().invalidate();
-        ctx.redirect("/");
+        String ref = ctx.header("Referer");
+        if (null != ref) {
+            ctx.redirect(ref);
+        } else {
+            ctx.redirect("/");
+        }
     }
 
     private static void addAllParts(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
