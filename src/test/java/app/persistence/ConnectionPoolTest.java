@@ -21,7 +21,7 @@ class ConnectionPoolTest {
         String db = "Cupcake";
 
         // Act
-        ConnectionPool pool = ConnectionPool.getInstance(user, password, url, db);
+        ConnectionPool pool = ConnectionPool.getTestInstance(user, password, url, db);
 
         // Assert
         assertNotNull(pool);;
