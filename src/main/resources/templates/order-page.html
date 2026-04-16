@@ -54,8 +54,8 @@
                     <input type="hidden" name="lineIndex" th:value="${orderlineStat.index}"/>
                     <button type="submit" th:formaction="@{/remove-orderline}">🗑</button>
                 </div>
-                <div class="total-price" th:text="|Totalpris: ${totalCost}kr|"></div>
-                <button type="submit">Bestil</button>
+                <div class="total-price" th:text="|Totalpris: ${totalCost != null ? totalCost : 0}kr|"></div>
+                <button th:disabled="${totalCost == null or totalCost == null}" type="submit">Bestil</button>
             </form>
         </div>
     </div>
